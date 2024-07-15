@@ -14,6 +14,8 @@ function App() {
     <MouseStyle pos={{x:mousePos.x,y:mousePos.y}}></MouseStyle>
     <h1>Welcome hosting</h1>
     <h2>hii every one</h2>
+    <h2>hii every one</h2>
+    <h2>hii every one</h2>
    </div>
   );
 }
