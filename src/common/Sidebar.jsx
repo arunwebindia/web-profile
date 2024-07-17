@@ -54,7 +54,7 @@ export default function Sidebar() {
 
                     WebkitBackgroundSize: '100%',
 
-                    backgroundImage: "url('https://res.cloudinary.com/dzmrolrxy/image/upload/v1689236818/mypic/mypng.png')",
+                    backgroundImage: "url('https://refrigerationcompressorparts.net/wp-content/uploads/2019/03/solution-sidebar-background1.jpg)",
 
 
 
@@ -104,7 +104,7 @@ export default function Sidebar() {
 
                             <img
 
-                                src="https://as1.ftcdn.net/v2/jpg/02/43/12/34/1000_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg"
+                                src="https://res.cloudinary.com/dzmrolrxy/image/upload/v1689236818/mypic/mypng.png"
 
                                 alt=""
 
