@@ -13,31 +13,19 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import sidebarImage from '../assets/image/sidebar.jpg';
-
-export default function Sidebar(props) {
-   let [left,setMargin]= useState('0px');
-   useEffect(()=>{
-    if(props.open){
-        setMargin('-250px')
-       }
-       else{
-        setMargin('0')
-       }
-   },[props.open])
-   
+import { NavLink } from "react-router-dom";
+export default function Sidebar(props) {   
   return (
     <>
-    <Box className="sidebar-wrapper" sx={{display:`${props.open ? 'none' : 'block'}`}}></Box>
+    <Box className="sidebar-wrapper" sx={{display:`${props.open ? 'none' : 'block'}`}} onClick={()=>props.setOpen(!props.open)}></Box>
       <Box
         sx={{
           width: "250px",
           position: "fixed",
           height: "100vh",
-          minHeight: "400px",
-         
+          minHeight: "400px", 
           padding: "16px",
-           color:'white',
-        //    boxShadow:'10px 0 15px -7px lightgray',
+          color:'white',
           WebkitBackgroundSize:'100%',  
           backgroundImage:`url(${sidebarImage})`,
            
@@ -45,7 +33,10 @@ export default function Sidebar(props) {
         className={props.open ? "sidebar active" : 'sidebar'}
       >
         
-        <Box className='close' sx={{position:'absolute',left:'100%',top:"1%",background:'black',color:'white',width:'50px',height:'20px',zIndex:'55666'}} onClick={()=>props.setOpen(!props.open)}></Box>
+        <Box className='close' sx={{position:'absolute',left:'100%',top:"0%",background:'#073a65',color:'white',padding:'.5rem',fontSize:'35px'}} onClick={()=>props.setOpen(!props.open)}>
+            {props.open ? <span>&#8250;</span> : <span>&#8249;</span>
+                }
+        </Box>
         <Box
           sx={{
             display: "flex",
@@ -83,6 +74,7 @@ export default function Sidebar(props) {
               <List>
                 <ListItem disablePadding>
                   <ListItemButton>
+                    
                     <ListItemText primary="Home" />
                   </ListItemButton>
                 </ListItem>
@@ -106,13 +98,15 @@ export default function Sidebar(props) {
           </Box>
           
           <Box>
-          <Box
+          
+            <Typography sx={{fontSize:'12px',color:"gray",textAlign:'center'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. cupiditate iusto fuga tenetur tempore.</Typography>
+            <Box
             sx={{
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               gap: "10px",
-              paddingBottom:'20px'
+              
             }}
           >
             <Avatar>
@@ -125,7 +119,6 @@ export default function Sidebar(props) {
               <GitHubIcon />
             </Avatar>
           </Box>
-            <Typography sx={{fontSize:'12px',color:"gray"}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. cupiditate iusto fuga tenetur tempore.</Typography>
           </Box>
         </Box>
       </Box>

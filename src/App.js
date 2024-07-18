@@ -1,24 +1,20 @@
 
-import './App.css';
-import {useState} from 'react'
-import MouseStyle from './mouseStyle/MouseStyle';
+import { useState } from 'react'
 import Sidebar from './common/Sidebar';
-import Home from './components/Home'
-function App() {
-  let [mousePos,setMousePos] =useState({x:0,y:0});
-  const [open, setOpen] = useState(true)
+import Home from './components/Home';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import './App.css';
 
-  function handleMouse(e){
-    let x = e.clientX;
-    let y = e.clientY;
-   setMousePos({...mousePos,x:x,y:y})
-  }
+function App() {
+  const [open, setOpen] = useState(true);
+
   return (
-   <div onMouseMove={handleMouse}>
-    <MouseStyle pos={{x:mousePos.x,y:mousePos.y}}></MouseStyle>
-    <Sidebar setOpen={setOpen} open={open}/>
-   <Home open={open}/>
-   </div>
+    <BrowserRouter>
+        <Sidebar setOpen={setOpen} open={open} />
+        <Routes>
+          <Route path='/' element={<Home/>}></Route>
+        </Routes>
+    </BrowserRouter>
   );
 }
 
