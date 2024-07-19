@@ -13,7 +13,7 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import sidebarImage from '../assets/image/sidebar.jpg';
-import { Link } from "react-router-dom";
+
 export default function Sidebar(props) {
 
   return (
@@ -28,7 +28,10 @@ export default function Sidebar(props) {
           padding: "16px",
           color: 'white',
           WebkitBackgroundSize: '100%',
-          backgroundImage: `url(${sidebarImage})`,
+          // backgroundImage: `url(${sidebarImage})`,
+          backgroundColor: "#2b4162",
+          backgroundImage: "linear-gradient(-189deg, #2b4162 0%, #12100e 74%)",
+          
           zIndex: '5'
         }}
         className={props.open ? "sidebar active" : 'sidebar'}
@@ -132,18 +135,18 @@ export default function Sidebar(props) {
             className="social-media"
           >
 
-            <Link to={{ pathname: "https://www.facebook.com/hgsarun" }} target="_blank">
+            <a href="https://www.facebook.com/hgsarun" target="_blank" rel="noreferrer">
             <FacebookIcon />
-            </Link>
-            <Link to={{ pathname: "https://www.linkedin.com/in/hgsarunsingh/" }} target="_blank">
+            </a>
+            <a href="https://www.linkedin.com/in/hgsarunsingh/" target="_blank" rel="noreferrer">
             <LinkedInIcon />
-            </Link>
-            <Link to={{ pathname: "https://t.me/arunwebindia" }} target="_blank">
+            </a>
+            <a href="https://t.me/arunwebindia" target="_blank" rel="noreferrer">
             <TelegramIcon />
-            </Link>
-            <Link to={{ pathname: "https://github.com/arunwebindia" }} target="_blank">
+            </a>
+            <a href="https://github.com/arunwebindia" target="_blank" rel="noreferrer">
             <GitHubIcon />
-            </Link>
+            </a>
           </Box>
 
         </Box>
