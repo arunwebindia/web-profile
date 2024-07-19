@@ -41,6 +41,7 @@ nav a:active,nav a:focus{
       left:0;
       top:0;
       background-color: rgba(0, 0, 0, 0.541);
+      z-index: 3;
     }
     .sidebar{
       left:0;
