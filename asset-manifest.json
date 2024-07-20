@@ -1,15 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.d95abe81.css",
-    "main.js": "/static/js/main.a72fd1ad.js",
+    "main.css": "/static/css/main.873a5206.css",
+    "main.js": "/static/js/main.f55cde48.js",
+    "static/media/au.png": "/static/media/au.31866cf4cba494d7aab6.png",
+    "static/media/abic.jpg": "/static/media/abic.8fd67bd4d4a66a661a1d.jpg",
+    "static/media/aic.jpg": "/static/media/aic.2e2e4143095dfa3fcdf8.jpg",
+    "static/media/knit.jpeg": "/static/media/knit.f197c1da74222e54a986.jpeg",
+    "static/media/pngegg (7).png": "/static/media/pngegg (7).71feb69583f5dd86ba58.png",
+    "static/media/pngegg (3).png": "/static/media/pngegg (3).83903b30822753b81ed1.png",
+    "static/media/pngegg (1).png": "/static/media/pngegg (1).1d7b133e22ffe4829da6.png",
+    "static/media/pngegg (2).png": "/static/media/pngegg (2).9f33c557b92e4e2e1cc8.png",
+    "static/media/pngegg (6).png": "/static/media/pngegg (6).caafbb5567c905e583e8.png",
     "static/media/Karla-Regular.ttf": "/static/media/Karla-Regular.f950111be01b92a807ba.ttf",
+    "static/media/pngegg (4).png": "/static/media/pngegg (4).20adfb35ae6a6e5817bf.png",
+    "static/media/pngegg (5).png": "/static/media/pngegg (5).07d152a8a036951b8d14.png",
     "static/media/sidebar.jpg": "/static/media/sidebar.4311f36f2527e0f35d9f.jpg",
     "index.html": "/index.html",
-    "main.d95abe81.css.map": "/static/css/main.d95abe81.css.map",
-    "main.a72fd1ad.js.map": "/static/js/main.a72fd1ad.js.map"
+    "main.873a5206.css.map": "/static/css/main.873a5206.css.map",
+    "main.f55cde48.js.map": "/static/js/main.f55cde48.js.map"
   },
   "entrypoints": [
-    "static/css/main.d95abe81.css",
-    "static/js/main.a72fd1ad.js"
+    "static/css/main.873a5206.css",
+    "static/js/main.f55cde48.js"
   ]
 }
