@@ -13,13 +13,13 @@ export default function Contact() {
     <Box sx={{ width: '100%', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center',backgroundColor:'#b9dcff33', }} id="contact">
       <Box className="section-wrapper">
         <Grid container spacing={2}>
-          <Grid xs={8}>
+          <Grid lg={8}>
             <h1>Contact</h1>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat ad
             dignissimos iusto expedita, quidem quas odit, enim ea cupiditate iste
             esse deleniti facilis tempora accusantium, ipsam ex error ullam impedit.
           </Grid>
-          <Grid xs={4}>
+          <Grid lg={4}>
             <Box sx={{ padding: "1.5rem", maxWidth: "450px", border: ".3px solid #fff", borderRadius: '.5rem', background: '#fff' }} boxShadow={"sm"}>
               <form action="">
                 <Box sx={{ marginBottom: '1rem' }}>
