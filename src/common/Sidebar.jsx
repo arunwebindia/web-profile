@@ -150,7 +150,7 @@ export default function Sidebar(props) {
             </a>
           </Box>
           <Box>
-            {/* <AdsComponent dataAdSlot="2253853854"/> */}
+            <AdsComponent dataAdSlot="2253853854"/>
             {/* <ins class="adsbygoogle"
               style={{ display: "block" }}
               data-ad-client="ca-pub-8222566596300408"
