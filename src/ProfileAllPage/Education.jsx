@@ -22,7 +22,7 @@ export default function Education() {
         <Grid container spacing={2}>
         <Grid lg={6}>
             <Card>
-              <CardActionArea sx={{display:'flex',height:'150px'}}>
+              <CardActionArea sx={{display:'flex'}} className="education-cards">
                 <CardMedia
                   component="img"
                   
@@ -32,11 +32,13 @@ export default function Education() {
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    Lizard
+                   High School
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000
-                    species, ranging across all continents except Antarctica
+                   Adarsh inter college mahuabagh ghazipur uttar pradesh.
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                   64%
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -44,7 +46,7 @@ export default function Education() {
           </Grid>
           <Grid lg={6}>
             <Card>
-              <CardActionArea sx={{display:'flex',height:'150px'}}>
+              <CardActionArea sx={{display:'flex'}} className="education-cards">
                 <CardMedia
                   component="img"
                   
@@ -54,11 +56,13 @@ export default function Education() {
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    Lizard
+                  Intermediate
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000
-                    species, ranging across all continents except Antarctica
+                  Angelo Bengali Inter College Civil Line Prayagraj Uttar Pradesh
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                  70%
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -66,7 +70,7 @@ export default function Education() {
           </Grid>
           <Grid lg={6}>
             <Card>
-              <CardActionArea sx={{display:'flex',height:'150px'}}>
+            <CardActionArea sx={{display:'flex',justifyContent:'start'}} className="education-cards">
                 <CardMedia
                   component="img"
                   
@@ -76,19 +80,22 @@ export default function Education() {
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    Lizard
+                    Bachelor of Science
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000
-                    species, ranging across all continents except Antarctica
+                  University of Allahabad prayagran Uttar Pradesh
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                  55%
                   </Typography>
                 </CardContent>
               </CardActionArea>
+            
             </Card>
           </Grid>
           <Grid lg={6}>
             <Card>
-              <CardActionArea sx={{display:'flex',height:'150px'}}>
+              <CardActionArea sx={{display:'flex'}} className="education-cards">
                 <CardMedia
                   component="img"
                   
@@ -97,12 +104,14 @@ export default function Education() {
                   sx={{width:'40%',height:'100%'}}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Lizard
+                  <Typography gutterBottom variant="h6" component="div">
+                   Master of Computer application
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000
-                    species, ranging across all continents except Antarctica
+                    Kamla Nehru Institute of Technology Sultanpur Uttar Pradesh
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    86%
                   </Typography>
                 </CardContent>
               </CardActionArea>

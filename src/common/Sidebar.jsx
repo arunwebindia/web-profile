@@ -108,7 +108,7 @@ export default function Sidebar(props) {
                 <ListItem disablePadding>
                   <ListItemButton>
                     <a href={"#project"}>
-                      Project
+                      Experience
                     </a>
                   </ListItemButton>
                 </ListItem>
