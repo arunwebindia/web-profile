@@ -7,9 +7,46 @@ import { Typography } from '@mui/material';
 
 import Textarea from "@mui/joy/Textarea";
 import FormLabel from '@mui/joy/FormLabel';
-
+import { useFormik } from 'formik';
 
 export default function Contact() {
+
+  const validate = values => {
+    const errors = {};
+    if (!values.name) {
+      errors.name = 'Required';
+    } else if (values.name.length > 15) {
+      errors.name = 'Must be 15 characters or less';
+    }
+  
+    if (!values.message) {
+      errors.message = 'Required';
+    } else if (values.message.length < 50) {
+      errors.message = 'Must be 50 characters or more';
+    }
+  
+    if (!values.email) {
+      errors.email = 'Required';
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+      errors.email = 'Invalid email address';
+    }
+  
+    return errors;
+  };
+
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      message: '',
+    },
+    validate,
+    onSubmit: values => {
+      console.log(values)
+    },
+  });
+
+
   return (
     <Box sx={{ width: '100%', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}} id="contact">
       <Box className="section-wrapper">
@@ -23,14 +60,18 @@ export default function Contact() {
           </Grid>
           <Grid lg={5} flexGrow={1}>
             <Box sx={{ padding: "1.5rem",backgroundColor:'#b9dcff33', border: ".3px solid #fff", borderRadius: '.5rem',}} boxShadow={"sm"}>
-              <form action="">
+              <form onSubmit={formik.handleSubmit} action="https://formsubmit.co/el/numaki" method="POST" target="_blank">
                 <Box sx={{ marginBottom: '1rem' }}>
                   <FormLabel sx={{marginBottom:'.5rem'}}>Name</FormLabel>
                   <Input
                     type="text"
                     size="sm"
+                    name="name"
                     placeholder="Name"
+                    onChange={formik.handleChange}
+                    value={formik.values.name}
                   />
+                  {formik.errors.name ? <small>{formik.errors.name}</small> : null}
                 </Box>
                 <Box sx={{ marginBottom: '1rem' }}>
                   <FormLabel sx={{marginBottom:'.5rem'}}>Email</FormLabel>
@@ -38,11 +79,17 @@ export default function Contact() {
                     type="email"
                     size="sm"
                     placeholder="Email"
+                    name="email"
+                    onChange={formik.handleChange}
+                    value={formik.values.email}
                   />
+                  {formik.errors.email ? <small>{formik.errors.email}</small> : null}
                 </Box>
                 <Box sx={{ marginBottom: '1rem' }}>
                   <FormLabel sx={{marginBottom:'.5rem'}}>Your message</FormLabel>
-                  <Textarea minRows={2} size="sm" />
+                  <Textarea minRows={2} size="sm"  onChange={formik.handleChange} name="message"
+                    value={formik.values.message}/>
+                    {formik.errors.message ? <small>{formik.errors.message}</small> : null}
                 </Box>
                 <Box>
                   <Button type="submit">Submit</Button>

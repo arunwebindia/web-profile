@@ -13,6 +13,7 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import sidebarImage from '../assets/image/sidebar.jpg';
+import AdsComponent from "../components/AdsComponent";
 
 export default function Sidebar(props) {
 
@@ -31,7 +32,7 @@ export default function Sidebar(props) {
           // backgroundImage: `url(${sidebarImage})`,
           backgroundColor: "#2b4162",
           backgroundImage: "linear-gradient(-189deg, #2b4162 0%, #12100e 74%)",
-          
+
           zIndex: '5'
         }}
         className={props.open ? "sidebar active" : 'sidebar'}
@@ -136,19 +137,29 @@ export default function Sidebar(props) {
           >
 
             <a href="https://www.facebook.com/hgsarun" target="_blank" rel="noreferrer">
-            <FacebookIcon />
+              <FacebookIcon />
             </a>
             <a href="https://www.linkedin.com/in/hgsarunsingh/" target="_blank" rel="noreferrer">
-            <LinkedInIcon />
+              <LinkedInIcon />
             </a>
             <a href="https://t.me/arunwebindia" target="_blank" rel="noreferrer">
-            <TelegramIcon />
+              <TelegramIcon />
             </a>
             <a href="https://github.com/arunwebindia" target="_blank" rel="noreferrer">
-            <GitHubIcon />
+              <GitHubIcon />
             </a>
           </Box>
+          <Box>
+            {/* <AdsComponent dataAdSlot="2253853854"/> */}
+            {/* <ins class="adsbygoogle"
+              style={{ display: "block" }}
+              data-ad-client="ca-pub-8222566596300408"
+              data-ad-slot="2253853854"
+              data-ad-format="auto"
+              data-full-width-responsive="true">
 
+              </ins> */}
+          </Box>
         </Box>
       </Box>
     </>

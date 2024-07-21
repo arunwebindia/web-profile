@@ -61,7 +61,20 @@ label{
   max-height: 360px;
   height: auto;
 }
+small{
+  color: red;
+}
 
+div#google_translate_element {
+  position: fixed;
+  top: 90%;
+  right: 0;
+  z-index: 9;
+}
+.goog-te-gadget .goog-te-combo {
+  margin: 4px 0;
+  
+}
 @media(max-width:992px){
   .contact-us{
     gap: 1.5rem;
