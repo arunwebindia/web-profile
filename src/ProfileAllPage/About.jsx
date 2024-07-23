@@ -3,9 +3,11 @@ import Grid from '@mui/system/Unstable_Grid';
 import { Typography } from '@mui/material';
 import React from 'react'
 import Button from '@mui/material/Button'
+import arunresume from '../assets/image/arunresume.pdf'
+import handleDownload from "../components/downloadImage";
 export default function About() {
   return (
-    <Box sx={{ width: '100%', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }} id="contact">
+    <Box sx={{ width: '100%', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }} id="about">
       <Box className="section-wrapper">
         <Grid container spacing={6} justifyContent={'center'} className="contact-us">
           <Grid lg={7} sx={{ display: 'flex', alignItems: "start", flexDirection: 'column', justifyContent: 'center', gap: ".8rem" }}>
@@ -28,7 +30,7 @@ export default function About() {
             <hr />
             <Typography sx={{ padding: '.5rem 0' }}><span className='label'>Experience</span> : <span className='name'>2+ year</span></Typography>
             <hr />
-            <Button variant="contained" sx={{ marginTop: '.5rem' }}>Download cv</Button>
+            <Button variant="contained" sx={{ marginTop: '.5rem' }} onClick={()=>handleDownload(arunresume)}>Download cv</Button>
             </Box>
             
           </Grid>

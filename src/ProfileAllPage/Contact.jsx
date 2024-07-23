@@ -8,6 +8,8 @@ import { Typography } from '@mui/material';
 import Textarea from "@mui/joy/Textarea";
 import FormLabel from '@mui/joy/FormLabel';
 import { useFormik } from 'formik';
+import AdsComponent from "../components/AdsComponent";
+import AdsComp from "../components/AdsComp";
 
 export default function Contact() {
 
@@ -98,6 +100,10 @@ export default function Contact() {
             </Box>
           </Grid>
         </Grid>
+      </Box>
+      <Box sx={{minWidth:'250px'}}>
+      <AdsComponent />
+      {/* <AdsComp/> */}
       </Box>
     </Box>
   );

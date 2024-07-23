@@ -21,7 +21,7 @@ const AdsComponent = (props) => {
 
     return (
         <>
-           <ins class="adsbygoogle"
+           <ins className="adsbygoogle"
      style={{display:"block"}}
      data-ad-client="ca-pub-8222566596300408"
      data-ad-slot="2253853854"

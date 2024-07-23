@@ -14,6 +14,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import sidebarImage from '../assets/image/sidebar.jpg';
 import AdsComponent from "../components/AdsComponent";
+import AdsComp from "../components/AdsComp";
 
 export default function Sidebar(props) {
 
@@ -120,6 +121,7 @@ export default function Sidebar(props) {
                     </a>
                   </ListItemButton>
                 </ListItem>
+                
               </List>
             </nav>
           </Box>
@@ -150,7 +152,7 @@ export default function Sidebar(props) {
             </a>
           </Box>
           <Box>
-            <AdsComponent />
+            
           </Box>
         </Box>
       </Box>
