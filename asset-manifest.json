@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.b2594e87.css",
-    "main.js": "/static/js/main.d109e330.js",
+    "main.js": "/static/js/main.8d9e19cf.js",
     "static/media/au.png": "/static/media/au.31866cf4cba494d7aab6.png",
     "static/media/abic.jpg": "/static/media/abic.8fd67bd4d4a66a661a1d.jpg",
     "static/media/aic.jpg": "/static/media/aic.2e2e4143095dfa3fcdf8.jpg",
@@ -11,6 +11,7 @@
     "static/media/pngegg (7).png": "/static/media/pngegg (7).71feb69583f5dd86ba58.png",
     "static/media/pngegg (3).png": "/static/media/pngegg (3).83903b30822753b81ed1.png",
     "static/media/pngegg (1).png": "/static/media/pngegg (1).1d7b133e22ffe4829da6.png",
+    "static/media/arunresume.pdf": "/static/media/arunresume.42d415597611eb367aa9.pdf",
     "static/media/chetuSkill.jpg": "/static/media/chetuSkill.874180e143db06a3bb21.jpg",
     "static/media/pngegg (2).png": "/static/media/pngegg (2).9f33c557b92e4e2e1cc8.png",
     "static/media/pngegg (6).png": "/static/media/pngegg (6).caafbb5567c905e583e8.png",
@@ -20,10 +21,10 @@
     "static/media/sidebar.jpg": "/static/media/sidebar.4311f36f2527e0f35d9f.jpg",
     "index.html": "/index.html",
     "main.b2594e87.css.map": "/static/css/main.b2594e87.css.map",
-    "main.d109e330.js.map": "/static/js/main.d109e330.js.map"
+    "main.8d9e19cf.js.map": "/static/js/main.8d9e19cf.js.map"
   },
   "entrypoints": [
     "static/css/main.b2594e87.css",
-    "static/js/main.d109e330.js"
+    "static/js/main.8d9e19cf.js"
   ]
 }
