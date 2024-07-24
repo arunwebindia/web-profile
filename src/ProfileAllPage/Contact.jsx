@@ -101,7 +101,7 @@ export default function Contact() {
           </Grid>
         </Grid>
       </Box>
-      <Box sx={{minWidth:'250px',maxWidth:"100%",position:'fixed',top:'0',left:0}}>
+      <Box sx={{minWidth:'250px',position:'fixed',top:'0',left:0}}>
       <AdsComponent />
       <AdsComp/>
       </Box>
