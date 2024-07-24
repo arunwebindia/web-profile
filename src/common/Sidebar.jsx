@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box } from "@mui/system";
 import {
   Typography,
@@ -15,6 +15,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import sidebarImage from '../assets/image/sidebar.jpg';
 import AdsComponent from "../components/AdsComponent";
 import AdsComp from "../components/AdsComp";
+import { NavLink } from "react-router-dom";
 
 export default function Sidebar(props) {
 
@@ -78,7 +79,10 @@ export default function Sidebar(props) {
           <Box>
             <nav aria-label="sidebar">
               <List>
-                <ListItem disablePadding>
+                {
+                  props.profile ? 
+                  <>
+                  <ListItem disablePadding>
                   <ListItemButton sx={{ textAlign: 'center' }}>
                     <a href={"#banner"}>
                       Home
@@ -115,13 +119,45 @@ export default function Sidebar(props) {
                   </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
+                  <ListItemButton onClick={()=>props.setProfile(false)}>
+                   <NavLink to={'/taskHome'}>My tasks</NavLink>
+                  </ListItemButton>
+                </ListItem>
+                </>
+                  :
+                  <>
+                    <ListItem disablePadding>
+                  <ListItemButton onClick={()=>props.setProfile(true)}>
+                   <NavLink to={'/'}>My Profile</NavLink>
+                  </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                  <ListItemButton>
+                   <NavLink to={'/programming'}>Programming</NavLink>
+                  </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                  <ListItemButton>
+                   <NavLink to={'/jscomponent'}>Functionality</NavLink>
+                  </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                  <ListItemButton>
+                   <NavLink to={'/ui'}>CSS Design</NavLink>
+                  </ListItemButton>
+                </ListItem>
+                  </>
+                
+                }
+                
+              
+                <ListItem disablePadding>
                   <ListItemButton>
                     <a href={"#contact"}>
                       Contact us
                     </a>
                   </ListItemButton>
                 </ListItem>
-                
               </List>
             </nav>
           </Box>
@@ -150,9 +186,6 @@ export default function Sidebar(props) {
             <a href="https://github.com/arunwebindia" target="_blank" rel="noreferrer">
               <GitHubIcon />
             </a>
-          </Box>
-          <Box>
-            
           </Box>
         </Box>
       </Box>

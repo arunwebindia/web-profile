@@ -10,12 +10,11 @@ export default function About() {
     <Box sx={{ width: '100%', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }} id="about">
       <Box className="section-wrapper">
         <Grid container spacing={6} justifyContent={'center'} className="contact-us">
-          <Grid lg={7} sx={{ display: 'flex', alignItems: "start", flexDirection: 'column', justifyContent: 'center', gap: ".8rem" }}>
+          <Grid lg={7} sx={{ display: 'flex', alignItems: "start", flexDirection: 'column', justifyContent: 'center', gap: ".5rem" }}>
             <h1>About me</h1>
-            <Typography sx={{ padding: ".2rem 0", fontSize: '24px' }}>I'm a<span> Web developer</span></Typography>
+            <Typography sx={{ padding: "0", fontSize: '24px' }}>I'm a<span> Web developer</span></Typography>
             <Typography sx={{textAlign:'start'}}>
-
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Passionate and ambitious WEB developer, always ready to learn new things.
             </Typography>
           </Grid>
 
