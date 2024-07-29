@@ -3,7 +3,7 @@ import { Button, FormLabel, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React, { useState } from 'react'
 
-export default function Solution() {
+export default function Solution({programming}) {
     const [vewAns, setViewAns] = useState(true);
     const [viewNew, setViewNew] = useState(true);
 
@@ -13,14 +13,14 @@ export default function Solution() {
                 <Box className="ques-box" border={".3px solid lightblue"} p={1} >
                     <Box className="ques" sx={{ padding: '.5rem', fontSize: '1.6rem', borderLeft: '4px solid red' }}>
                         <Typography>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi deserunt tempore fugit, impedit laudantium quam harum laborum, repellendus temporibus provident, omnis consequuntur eos nobis assumenda. Dicta fugiat impedit vel cumque!
+                            {programming.ques}
                         </Typography>
                     </Box>
                     <Button variant="outlined" size="small" sx={{ marginTop: '.5rem', marginBottom: ".5rem" }} onClick={() => setViewAns(!vewAns)}>
                         {vewAns ? 'view' : 'hide'} answer
                     </Button>
                     <Box className="ans" sx={{ border: ".2px solid lightgray", padding: "0 1rem", background: "#fff" }} style={{ height: `${vewAns ? '0px' : ''}`, overflow: `${vewAns ? 'hidden' : ''}` }}>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus laborum, quidem qui pariatur quae excepturi aliquam dolore corrupti alias? Reprehenderit dolores deserunt commodi dicta! Dolorum ex accusantium repellendus esse consequuntur.
+                        <pre>{programming.ansText}</pre>
                     </Box>
                     <Box className="post" sx={{ padding: '10px 0' }}>
                         <Box sx={{}}>

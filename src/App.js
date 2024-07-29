@@ -13,7 +13,11 @@ import Solution from './ProfileAllPage/Solution';
 function App() {
   const [open, setOpen] = useState(true);
   let [profile,setProfile] = useState(true);
-  
+  let [programming,setProgramming] =useState({
+    ques:"",
+    ansText:"",
+    ansValue:''
+  })
   return (
     
     <BrowserRouter>
@@ -24,8 +28,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Container profile={profile} setProfile={setProfile}/>}>
                 <Route path="/taskHome" element={<TaskHome/>}></Route>
-                <Route path="/programming" element={<Programming/>}></Route>
-                <Route path='/programming/solution' element={<Solution/>}></Route>
+                <Route path="/programming" element={<Programming setProgramming={setProgramming}/>}></Route>
+                <Route path='/programming/solution' element={<Solution programming={programming}/>}></Route>
                 <Route path="/jscomponent" element={<JScomponent/>}></Route>
                 <Route path="/ui" element={<Ui/>} ></Route>
           </Route>
