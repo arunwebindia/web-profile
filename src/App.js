@@ -9,6 +9,7 @@ import TaskHome from './ProfileAllPage/TaskHome';
 import Programming from './ProfileAllPage/Programming';
 import JScomponent from './ProfileAllPage/JScomponent';
 import Ui from './ProfileAllPage/Ui';
+import Solution from './ProfileAllPage/Solution';
 function App() {
   const [open, setOpen] = useState(true);
   let [profile,setProfile] = useState(true);
@@ -24,8 +25,9 @@ function App() {
           <Route path='/' element={<Container profile={profile} setProfile={setProfile}/>}>
                 <Route path="/taskHome" element={<TaskHome/>}></Route>
                 <Route path="/programming" element={<Programming/>}></Route>
+                <Route path='/programming/solution' element={<Solution/>}></Route>
                 <Route path="/jscomponent" element={<JScomponent/>}></Route>
-                <Route path="/ui" element={<Ui/>}></Route>
+                <Route path="/ui" element={<Ui/>} ></Route>
           </Route>
         </Routes>
     </BrowserRouter>

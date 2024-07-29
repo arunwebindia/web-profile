@@ -6,6 +6,7 @@ export default function Cards(props) {
         <img src={props?.src} alt="" />
         <h3>{props?.name}</h3>
         <span>{props?.progress}</span>
+        {props.children}
     </span>
   )
 }
