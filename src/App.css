@@ -75,7 +75,9 @@ div#google_translate_element {
   margin: 4px 0;
   
 }
-
+.ans{
+  transition: all .5s ease-in-out;
+}
 
 @media(max-width:992px){
   .contact-us{
@@ -123,6 +125,13 @@ div#google_translate_element {
     }
     .section-wrapper{
       text-align: center;
-      
+      max-width: 85%;
+    }
+    #solution .section-wrapper{
+      text-align: start;
+     
+    }
+    #solution pre{
+      overflow: auto;
     }
   }
