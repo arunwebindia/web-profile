@@ -1,0 +1,70 @@
+import React, { useEffect, useState } from 'react'
+import { Box } from '@mui/system'
+import Textarea from "@mui/joy/Textarea";
+import FormLabel from '@mui/joy/FormLabel';
+import { Typography } from '@mui/material';
+import Button from '@mui/material/Button';
+import Program from '../components/Program';
+import SendIcon from '@mui/icons-material/Send';
+import { Link } from 'react-router-dom';
+import { programming } from '../utility_files/utility';
+
+export default function Programming({setProgramming}) {
+ const [filterData,setFilterData] = useState(programming);
+ const [num,setNum]= useState(0);
+
+ let numberofPage = Math.ceil(programming.length/10);
+
+ console.log(filterData,'new updated data');
+ useEffect(()=>{
+  let start = num*10 +1;
+  setFilterData(programming.slice(start,start+10));
+ },[num])
+
+ function handlePagination(nu){
+ setNum(nu);
+ }
+ function prev(){
+  if(num > 0){
+
+    setNum(num - 1);
+  }
+ }
+ function next(){
+  if(num < numberofPage - 1){
+    setNum(num + 1);
+  }
+ }
+  return (<>
+    <Box sx={{ width: '100%', minHeight: '100vh', padding: '1.2rem', backgroundColor: '#dcf7ff33', }} id="skill">
+      
+        <Box sx={{ fontSize: '26px', padding: '.5rem 0', borderBottom: ".3px solid blue" }}>
+          Javascript  based on <a href="https://www.w3resource.com/javascript-exercises/" target='_blank'>w3 resource</a>
+        </Box>
+        {
+            filterData.map((elem,index)=>{
+              return (
+                <Box sx={{ padding: ".5rem",marginBottom:"1rem" }}> 
+          <Typography sx={{ paddingBottom: ".5rem" }}>
+            {num*10 + index +1}. {elem.ques}
+          </Typography>
+         
+          <Link to={'/programming/solution'} onClick={()=> setProgramming(elem)} >See solution</Link>
+        </Box>
+              )
+            })
+          }
+        
+    </Box>
+    <Box sx={{textAlign:'end'}}>
+      <Button onClick={prev} size='small'>prev</Button>
+      {
+       Array.from(Array(numberofPage)).map((elem,ind)=>{
+        return (<Button onClick={()=>handlePagination(ind)} sx={num == ind ? {border:'1px solid blue'} : ""}  size='small'>{ind + 1}</Button>)
+       })
+      }
+      <Button  onClick={next}  size='small'>next</Button>
+    </Box>
+  </>
+  )
+}

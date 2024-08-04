@@ -4,15 +4,11 @@ import { Box } from "@mui/system";
 import React from "react";
 import Button from '@mui/joy/Button';
 import { Typography } from '@mui/material';
-
 import Textarea from "@mui/joy/Textarea";
 import FormLabel from '@mui/joy/FormLabel';
 import { useFormik } from 'formik';
-import AdsComponent from "../components/AdsComponent";
-import AdsComp from "../components/AdsComp";
 
 export default function Contact() {
-
   const validate = values => {
     const errors = {};
     if (!values.name) {
@@ -20,19 +16,16 @@ export default function Contact() {
     } else if (values.name.length > 15) {
       errors.name = 'Must be 15 characters or less';
     }
-  
     if (!values.message) {
       errors.message = 'Required';
     } else if (values.message.length < 50) {
       errors.message = 'Must be 50 characters or more';
     }
-  
     if (!values.email) {
       errors.email = 'Required';
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
       errors.email = 'Invalid email address';
     }
-  
     return errors;
   };
 
@@ -89,7 +82,7 @@ export default function Contact() {
                 </Box>
                 <Box sx={{ marginBottom: '1rem' }}>
                   <FormLabel sx={{marginBottom:'.5rem'}}>Your message</FormLabel>
-                  <Textarea minRows={2} size="sm"  onChange={formik.handleChange} name="message"
+                  <Textarea minRows={3} size="sm"  onChange={formik.handleChange} name="message"
                     value={formik.values.message}/>
                     {formik.errors.message ? <small>{formik.errors.message}</small> : null}
                 </Box>

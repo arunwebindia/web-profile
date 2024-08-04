@@ -79,6 +79,33 @@ export default function Sidebar(props) {
           <Box>
             <nav aria-label="sidebar">
               <List>
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <NavLink to={'/'}>Profile</NavLink>
+                </ListItemButton>
+              </ListItem>
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <NavLink to={'/task'}>My Tasks</NavLink>
+                </ListItemButton>
+              </ListItem>
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <NavLink to={'/project'}>My Project</NavLink>
+                </ListItemButton>
+              </ListItem>
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <NavLink to={'/admin'}>Admin</NavLink>
+                </ListItemButton>
+              </ListItem>
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <NavLink to={'/contact'}>Contact us</NavLink>
+                </ListItemButton>
+              </ListItem>
+              </List>
+              {/* <List>
                 {
                   props.profile ? 
                   <>
@@ -158,7 +185,7 @@ export default function Sidebar(props) {
                     </a>
                   </ListItemButton>
                 </ListItem>
-              </List>
+              </List> */}
             </nav>
           </Box>
 

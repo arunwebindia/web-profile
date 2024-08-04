@@ -19,7 +19,7 @@ width: 100%;
   color:gray
 }
 
-nav a:active,nav a:focus{
+nav a.active,nav a:focus{
   color:red
 }
 /* updated */
