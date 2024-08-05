@@ -10,7 +10,8 @@ import Notification from './Notification'
 import Question from './Question'
 import StoreData from './StoreData'
 import Grid from '@mui/system/Unstable_Grid';
-
+import AllQustion from './AllQuestion';
+import StoreDataa from '../components/StoreData';
 export default function Admin() {
     return (
         <>
@@ -88,14 +89,27 @@ export default function Admin() {
                         <Typography sx={{padding:".25rem",fontSize:"20px",background:'#fff',marginBottom:'.25rem'}}>Get solutions</Typography>
                         <Question />
                         </Grid>
-                       
                         <Grid lg={12}>
+                        <Box sx={{display:'flex',justifyContent:'space-between',alignItems:'center',background:'#fff',marginBottom:'.25rem',padding:'.25rem'}}>
+                                <Typography sx={{padding:".25rem",fontSize:"20px"}}>All programming</Typography>
+                                <Button variant='contained' size='small'>Add</Button>
+                            </Box>
+                        <AllQustion></AllQustion>
+                        </Grid>
+                        <Grid lg={4}>
+                        <Box sx={{display:'flex',justifyContent:'space-between',alignItems:'center',background:'#fff',marginBottom:'.25rem',padding:'.25rem'}}>
+                                <Typography sx={{padding:".25rem",fontSize:"20px"}}>All store Data</Typography>
+                                <div><Button variant='contained' size='small' sx={{marginRight:'5px'}}>Add text</Button><Button variant='contained' size='small' >Add File</Button></div>
+                            </Box>
+                        <StoreDataa/>
+                        </Grid>
+                        {/* <Grid lg={12}>
                             <Box sx={{display:'flex',justifyContent:'space-between',alignItems:'center',background:'#fff',marginBottom:'.25rem',padding:'.25rem'}}>
                                 <Typography sx={{padding:".25rem",fontSize:"20px"}}>All Save</Typography>
                                 <Button variant='contained' size='small'>Add</Button>
                             </Box>
                         <StoreData />
-                        </Grid>
+                        </Grid> */}
                     </Grid>
                 </Box>
             </Box>

@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import DeleteIcon from '@mui/icons-material/Delete';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import { textAlign } from '@mui/system';
 
 
 export default function Notification() {
@@ -21,7 +22,7 @@ export default function Notification() {
             background:'#04041a',color:"#fff"
         },
         th:{
-            padding:'1rem'
+            padding:'1rem',textAlign:'start'
         },
         td:{
             padding:'1rem',color:'#151c1d'
@@ -85,7 +86,7 @@ export default function Notification() {
                     return (<tr style={tableStyle.tr}>
                         <td style={tableStyle.td}>{ind+1}</td>
                         <td style={tableStyle.td}>{elem.name}</td>
-                        <td style={tableStyle.td}>{elem.message?.slice(0,20)}...</td>
+                        <td style={tableStyle.td}>{elem.message?.slice(0,50)}...</td>
                         <td style={tableStyle.td}>Time</td>
                         <td><Button onClick={()=>handleOpen(elem)}><OpenInNewIcon/></Button><Button sx={{color:"red"}} onClick={()=>setDel(true)}><DeleteIcon/></Button></td>
                     </tr>)

@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Textarea from '@mui/joy/Textarea';
 
-export default function Question() {
+export default function StoreData() {
     const [open, setOpen] = useState(false);
     const [view,setView] =useState(false);
     const [opensol,setOpenSol] = useState(false);
@@ -39,7 +39,7 @@ export default function Question() {
             </Typography>
             <Box py={2}>
                 <Button sx={{color:"blue",fontSize:'10px',color:'white'}} variant="contained" size="small" onClick={()=>setOpenSol(true)}>View</Button>
-                <Button sx={{color:"blue",fontSize:'10px',color:'white',ml:2}} variant="contained" size="small" onClick={()=>handleOpen(true)}>Update</Button>
+                <Button sx={{color:"blue",fontSize:'10px',color:'white',ml:2}} variant="contained" size="small" onClick={()=>handleOpen(true)}>Delete</Button>
             </Box>
         </Box>
         <Box>
@@ -49,7 +49,7 @@ export default function Question() {
             </Typography>
             <Box py={2}>
                 <Button sx={{color:"blue",fontSize:'10px',color:'white'}} variant="contained" size="small" onClick={()=>setOpenSol(true)}>View</Button>
-                <Button sx={{color:"blue",fontSize:'10px',color:'white',ml:2}} variant="contained" size="small" onClick={()=>handleOpen(true)}>Update</Button>
+                <Button sx={{color:"blue",fontSize:'10px',color:'white',ml:2}} variant="contained" size="small" onClick={()=>handleOpen(true)}>Delete</Button>
             </Box>
         </Box>
       </Box>

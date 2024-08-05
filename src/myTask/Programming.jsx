@@ -49,7 +49,7 @@ export default function Programming({setProgramming}) {
             {num*10 + index +1}. {elem.ques}
           </Typography>
          
-          <Link to={'/programming/solution'} onClick={()=> setProgramming(elem)} >See solution</Link>
+          <Link to={'/task/programming/solution'} onClick={()=> setProgramming(elem)} >See solution</Link>
         </Box>
               )
             })

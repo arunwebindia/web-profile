@@ -96,6 +96,11 @@ export default function Sidebar(props) {
               </ListItem>
               <ListItem disablePadding>
                 <ListItemButton>
+                  <NavLink to={'/gallery'}>Photo Gallery</NavLink>
+                </ListItemButton>
+              </ListItem>
+              <ListItem disablePadding>
+                <ListItemButton>
                   <NavLink to={'/admin'}>Admin</NavLink>
                 </ListItemButton>
               </ListItem>
@@ -105,87 +110,6 @@ export default function Sidebar(props) {
                 </ListItemButton>
               </ListItem>
               </List>
-              {/* <List>
-                {
-                  props.profile ? 
-                  <>
-                  <ListItem disablePadding>
-                  <ListItemButton sx={{ textAlign: 'center' }}>
-                    <a href={"#banner"}>
-                      Home
-                    </a>
-
-                  </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                  <ListItemButton>
-                    <a href={"#about"}>
-                      About
-                    </a>
-                  </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                  <ListItemButton>
-                    <a href={"#education"}>
-                      Education
-                    </a>
-                  </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                  <ListItemButton>
-                    <a href={"#skill"}>
-                      Skill
-                    </a>
-                  </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                  <ListItemButton>
-                    <a href={"#project"}>
-                      Experience
-                    </a>
-                  </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                  <ListItemButton onClick={()=>props.setProfile(false)}>
-                   <NavLink to={'/taskHome'}>My tasks</NavLink>
-                  </ListItemButton>
-                </ListItem>
-                </>
-                  :
-                  <>
-                    <ListItem disablePadding>
-                  <ListItemButton onClick={()=>props.setProfile(true)}>
-                   <NavLink to={'/'}>My Profile</NavLink>
-                  </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                  <ListItemButton>
-                   <NavLink to={'/programming'}>Programming</NavLink>
-                  </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                  <ListItemButton>
-                   <NavLink to={'/jscomponent'}>Functionality</NavLink>
-                  </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                  <ListItemButton>
-                   <NavLink to={'/ui'}>CSS Design</NavLink>
-                  </ListItemButton>
-                </ListItem>
-                  </>
-                
-                }
-                
-              
-                <ListItem disablePadding>
-                  <ListItemButton>
-                    <a href={"#contact"}>
-                      Contact us
-                    </a>
-                  </ListItemButton>
-                </ListItem>
-              </List> */}
             </nav>
           </Box>
 
