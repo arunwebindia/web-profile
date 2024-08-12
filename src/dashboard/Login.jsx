@@ -4,27 +4,26 @@ import { Box } from "@mui/system";
 import React from "react";
 import Button from '@mui/joy/Button';
 import { Typography } from '@mui/material';
-import Textarea from "@mui/joy/Textarea";
 import FormLabel from '@mui/joy/FormLabel';
 import { useFormik } from 'formik';
+import { ToastContainer, toast } from 'material-react-toastify';
+import 'material-react-toastify/dist/ReactToastify.css';
+import axios from "axios";
 
-export default function Contact() {
+export default function Login({setLogin}) {
+  const notify = () => toast.error('Sorry we are getting errors', {
+    position: "top-right"});
   const validate = values => {
     const errors = {};
+   
     if (!values.username) {
-      errors.nusername = 'Required';
-    } 
-    else if(values.username.length < 4) {
-      errors.username = 'Must be 5 characters or more';
+      errors.username = 'Required';
+    } else if (values.username.length <4) {
+      errors.username = 'Must be 8 characters or more';
     }
-    if (!values.password) {
-      errors.password = 'Required';
-    } else if (values.password.length <8) {
-      errors.password = 'Must be 50 characters or more';
-    }
-    if (!values.email) {
+    if (!values.username) {
       errors.email = 'Required';
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    } else if (values.password.length < 4) {
       errors.email = 'Invalid email address';
     }
     return errors;
@@ -32,13 +31,19 @@ export default function Contact() {
 
   const formik = useFormik({
     initialValues: {
-      name: '',
-      email: '',
-      message: '',
+      username: '',
+      password: '',
     },
     validate,
-    onSubmit: values => {
-      console.log(values)
+    onSubmit: async(values) => {
+      let res = await axios.post(`${process.env.REACT_APP_BASE_URL}/login`,values);
+      if(res.data){
+        setLogin(true);
+      }
+      else{
+        notify()
+        setLogin(false);
+      }
     },
   });
 
@@ -48,44 +53,39 @@ export default function Contact() {
       <Box className="section-wrapper">
         <Grid container spacing={6} m={0} className="contact-us" width="100%">
           <Grid lg={7} sx={{display:'flex',alignItems:"start",flexDirection:'column',justifyContent:'center',gap:".8rem"}}>
-            <h1>Get in Touch</h1>
+            <h1>Admin Panel</h1>
             <Typography sx={{textAlign:'start'}}>
-
-           If you have any suggestion or If you any query please contact me.
+            Welcome to my admin panel if you want to access this please login or contact us.
+           
             </Typography>
           </Grid>
           <Grid lg={5} flexGrow={1}>
             <Box sx={{ padding: "1.5rem",backgroundColor:'#b9dcff33', border: ".3px solid #fff", borderRadius: '.5rem',}} boxShadow={"sm"}>
-              <form onSubmit={formik.handleSubmit} action="https://formsubmit.co/el/numaki" method="POST" target="_blank">
+              <form onSubmit={formik.handleSubmit}>
+                
                 <Box sx={{ marginBottom: '1rem' }}>
-                  <FormLabel sx={{marginBottom:'.5rem'}}>Name</FormLabel>
+                  <FormLabel sx={{marginBottom:'.5rem'}}>Username</FormLabel>
                   <Input
                     type="text"
                     size="sm"
-                    name="name"
-                    placeholder="Name"
+                    placeholder="Username"
+                    name="username"
                     onChange={formik.handleChange}
-                    value={formik.values.name}
+                    value={formik.values.username}
                   />
-                  {formik.errors.name ? <small>{formik.errors.name}</small> : null}
+                  {formik.errors.username ? <small>{formik.errors.username}</small> : null}
                 </Box>
                 <Box sx={{ marginBottom: '1rem' }}>
-                  <FormLabel sx={{marginBottom:'.5rem'}}>Email</FormLabel>
+                  <FormLabel sx={{marginBottom:'.5rem'}}>Password</FormLabel>
                   <Input
-                    type="email"
+                    type="password"
                     size="sm"
-                    placeholder="Email"
-                    name="email"
+                    name="password"
+                    placeholder="Password"
+                    value={formik.values.password}
                     onChange={formik.handleChange}
-                    value={formik.values.email}
                   />
-                  {formik.errors.email ? <small>{formik.errors.email}</small> : null}
-                </Box>
-                <Box sx={{ marginBottom: '1rem' }}>
-                  <FormLabel sx={{marginBottom:'.5rem'}}>Your message</FormLabel>
-                  <Textarea minRows={3} size="sm"  onChange={formik.handleChange} name="message"
-                    value={formik.values.message}/>
-                    {formik.errors.message ? <small>{formik.errors.message}</small> : null}
+                  {formik.errors.password ? <small>{formik.errors.password}</small> : null}
                 </Box>
                 <Box>
                   <Button type="submit">Submit</Button>
@@ -95,7 +95,7 @@ export default function Contact() {
           </Grid>
         </Grid>
       </Box>
-     
+      <ToastContainer />
     </Box>
   );
 }

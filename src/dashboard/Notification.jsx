@@ -1,95 +1,63 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import DeleteIcon from '@mui/icons-material/Delete';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import axios from 'axios';
 
 
-export default function Notification() {
+export default function Notification(props) {
     const [open, setOpen] = useState(false);
-    const [del,setDel] = useState(false);
+    const [del,setDel] = useState({status:false,id:''});
     const [data,setData] = useState({});
+    const [contactList,setcontactList] = useState(null);
+    
+    useEffect(()=>{
+        const fetchformdata = async ()=>{
+            const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/contact`);
+            setcontactList(res.data);
+          }
+          fetchformdata();
+    },[del])
+
     const handleOpen = (elem) =>{ setOpen(true);setData(elem)};
     const handleClose = () => setOpen(false);
-    const tableStyle ={
-        table:{
-            border:'1px solid #eef6ff8f',padding:'1rem',borderCollapse:'collapse',background:'#fff',borderRadius:'.2rem',overflow:'hidden',width:'100%',height:'100%'
-        },
-        thead:{
-            background:'#04041a',color:"#fff"
-        },
-        th:{
-            padding:'1rem'
-        },
-        td:{
-            padding:'1rem',color:'#151c1d'
-        },
-        tr:{
-            border:'.3px solid lightgray'
-        }
+    const handleDelete = async (id)=>{
+        setDel({...del,status:false})
+        axios.delete(`${process.env.REACT_APP_BASE_URL}/contact/${id}`);
     }
-    let notifi =[
-        {
-            name:'Arun Singh',
-            email:'email.34@gmail.com',
-            message:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque natus nostrum optio, illo sed, rerum pariatur doloremque commodi reprehenderit, minus debitis numquam amet maiores a cumque veniam corrupti minima quod?"
-        },
-        {
-            name:'Arun Singh',
-            email:'arunsingh@gmail.com',
-            message:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque natus nostrum optio, amet maiores a cumque veniam corrupti minima quod?"
-        },
-        {
-            name:'Arun Singh',
-            email:'email.34@gmail.com',
-            message:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque natus nostrum optio, illo sed, rerum pariatur doloremque commodi reprehenderit, minus debitis numquam amet maiores a cumque veniam corrupti minima quod?"
-        },
-        {
-            name:'Arun Singh',
-            email:'arunsingh@gmail.com',
-            message:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque natus nostrum optio, amet maiores a cumque veniam corrupti minima quod?"
-        }
-        
-    ]
-    const style = {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        // width: "100%",
-        bgcolor: 'background.paper',
-       borderRadius:'.2rem',
-        boxShadow: 24,
-        p: 2,
-      };
+    
+    
   return (
     <>
-    
-    <Box sx={{margin:"auto",width:'100%',boxShadow:'sm',height:'300px',overflow:'auto'}}>
-    <table style={tableStyle.table}>
-        <thead style={tableStyle.thead}>
+    <Box sx={{margin:"auto",width:'100%',boxShadow:'sm',height:'300px',overflow:'auto'}} className="contact-msg-wrapper">
+    <table>
+        <thead>
         <tr>
-        <th style={tableStyle.th}>S.No.</th>
-        <th style={tableStyle.th}>Name</th>
-        <th style={tableStyle.th}>Email</th>
-        <th style={tableStyle.th}>Message</th>
-        <th style={tableStyle.th}>Time</th>
-        <th style={tableStyle.th}>Action</th>
+        <th>S.No.</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+        <th>Time</th>
+        <th>Action</th>
         </tr>
         </thead>
         <tbody>
             {
-                notifi.map((elem,ind)=>{
-                    return (<tr style={tableStyle.tr}>
-                        <td style={tableStyle.td}>{ind+1}</td>
-                        <td style={tableStyle.td}>{elem.name}</td>
-                        <td style={tableStyle.td}>{elem.email}</td>
-                        <td style={tableStyle.td}>{elem.message?.slice(0,20)}...</td>
-                        <td style={tableStyle.td}>Time</td>
-                        <td><Button onClick={()=>handleOpen(elem)}><OpenInNewIcon/></Button><Button sx={{color:"red"}} onClick={()=>setDel(true)}><DeleteIcon/></Button></td>
-                    </tr>)
+                contactList?.map((elem,ind)=>{
+                   
+                    return (
+                        <tr key={ind}>
+                            <td>{ind+1}</td>
+                            <td>{elem?.name}</td>
+                            <td>{elem?.email}</td>
+                            <td>{elem?.message?.slice(0,20)}...</td>
+                            <td>{elem?.time}</td>
+                            <td><Button onClick={()=>handleOpen(elem)}><OpenInNewIcon/></Button><Button sx={{color:"red"}} onClick={()=>setDel({...del,status:true,id:elem._id})}><DeleteIcon/></Button></td>
+                        </tr>
+                    )
                 })
             }
         </tbody>
@@ -102,9 +70,9 @@ export default function Notification() {
     aria-labelledby="modal-modal-title"
     aria-describedby="modal-modal-description"
   >
-    <Box sx={style}>
+    <Box bgcolor='background.paper' boxShadow= {24} p = {4} className="modal-wrapper">
     <Typography sx={{textAlign:'start',fontSize:'12px',mb:3}}>
-      time : 6/7/2024
+      {data.time}
       </Typography>
       <Typography id="modal-modal-title" variant="h4" sx={{}}>
        {data.name}
@@ -122,19 +90,19 @@ export default function Notification() {
   </Modal>
 
   <Modal
-    open={del}
-    onClose={()=>setDel(false)}
+    open={del.status}
+    onClose={()=>setDel({...del,status:false})}
     aria-labelledby="modal-modal-title"
     aria-describedby="modal-modal-description"
   >
-    <Box sx={style}>
+    <Box bgcolor='background.paper' boxShadow= {24} p= {4} className="modal-wrapper">
    
       <Typography id="modal-modal-title" variant="h6" sx={{ mb: 3,textAlign:'center'}}>
        Are You sure !
       </Typography>
       
      <Box sx={{textAlign:'center'}}>
-     <Button sx={{marginLeft:'auto'}} onClick={()=>setDel(false)} variant="contained" color="error">Delete</Button> 
+     <Button sx={{marginLeft:'auto'}} onClick={()=>{handleDelete(del.id)}} variant="contained" color="error">Delete</Button> 
      </Box>
     </Box>
   </Modal>

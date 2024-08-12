@@ -1,94 +1,56 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import DeleteIcon from '@mui/icons-material/Delete';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import { height, textAlign } from '@mui/system';
+import axios from 'axios';
 
 
-export default function AllQustion() {
+export default function AllQustion({addprogram}) {
     const [open, setOpen] = useState(false);
-    const [del,setDel] = useState(false);
+    const [del,setDel] = useState({status:false,id:''});
     const [data,setData] = useState({});
     const handleOpen = (elem) =>{ setOpen(true);setData(elem)};
     const handleClose = () => setOpen(false);
-    const tableStyle ={
-        table:{
-            border:'1px solid #eef6ff8f',padding:'1rem',borderCollapse:'collapse',background:'#fff',borderRadius:'.2rem',overflow:'hidden',width:'100%',height:'100%'
-        },
-        thead:{
-            background:'#04041a',color:"#fff"
-        },
-        th:{
-            padding:'1rem',textAlign:'start'
-        },
-        td:{
-            padding:'1rem',color:'#151c1d'
-        },
-        tr:{
-            border:'.3px solid lightgray'
+    const [allprogram,setAllprogram] = useState(null);
+    useEffect(()=>{
+        const fn=async ()=>{
+            const resp = await axios.get(`${process.env.REACT_APP_BASE_URL}/programming`);
+            setAllprogram(resp?.data);
         }
+        fn();
+    },[addprogram,del.status]);
+    function deleteQues(id){
+        const resp = axios.delete(`${process.env.REACT_APP_BASE_URL}/programming/${id}`);
+        setDel({...del,status:false})
     }
-    let notifi =[
-        {
-            name:'Arun Singh',
-            email:'email.34@gmail.com',
-            message:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque natus nostrum optio, illo sed, rerum pariatur doloremque commodi reprehenderit, minus debitis numquam amet maiores a cumque veniam corrupti minima quod?"
-        },
-        {
-            name:'Arun Singh',
-            email:'arunsingh@gmail.com',
-            message:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque natus nostrum optio, amet maiores a cumque veniam corrupti minima quod?"
-        },
-        {
-            name:'Arun Singh',
-            email:'email.34@gmail.com',
-            message:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque natus nostrum optio, illo sed, rerum pariatur doloremque commodi reprehenderit, minus debitis numquam amet maiores a cumque veniam corrupti minima quod?"
-        },
-        {
-            name:'Arun Singh',
-            email:'arunsingh@gmail.com',
-            message:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque natus nostrum optio, amet maiores a cumque veniam corrupti minima quod?"
-        }
-        
-    ]
-    const style = {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        // width: "100%",
-        bgcolor: 'background.paper',
-       borderRadius:'.2rem',
-        boxShadow: 24,
-        p: 2,
-      };
+  
   return (
     <>
     <Box sx={{height:'300px',overflow:'auto'}}>
 
-    <Box sx={{margin:"auto",width:'100%',boxShadow:'sm',height:'100%'}}>
-    <table style={tableStyle.table}>
-        <thead style={tableStyle.thead}>
+    <Box sx={{margin:"auto",width:'100%',boxShadow:'sm',height:'100%'}} className="contact-msg-wrapper">
+    <table>
+        <thead>
         <tr>
-        <th style={tableStyle.th}>S.No.</th>
-        <th style={tableStyle.th}>Question</th>
-        <th style={tableStyle.th}>Example</th>
-        <th style={tableStyle.th}>Solution</th>
-        <th style={tableStyle.th}>Action</th>
+        <th>S.No.</th>
+        <th>Question</th>
+        <th>Example</th>
+        <th>Solution</th>
+        <th>Action</th>
         </tr>
         </thead>
         <tbody>
             {
-                notifi.map((elem,ind)=>{
-                    return (<tr style={tableStyle.tr}>
-                        <td style={tableStyle.td}>{ind+1}</td>
-                        <td style={tableStyle.td}>{elem.name}</td>
-                        <td style={tableStyle.td}>{elem.message?.slice(0,50)}...</td>
-                        <td style={tableStyle.td}>Time</td>
-                        <td><Button onClick={()=>handleOpen(elem)}><OpenInNewIcon/></Button><Button sx={{color:"red"}} onClick={()=>setDel(true)}><DeleteIcon/></Button></td>
+                allprogram?.map((elem,ind)=>{
+                    return (<tr>
+                        <td>{ind+1}</td>
+                        <td>{elem.question?.slice(0,50)}...</td>
+                        <td>{elem.example?.slice(0,50)}...</td>
+                        <td>{elem.answer?.slice(0,50)}...</td>
+                        <td><Button onClick={()=>handleOpen(elem)}><OpenInNewIcon/></Button><Button sx={{color:"red"}} onClick={()=>setDel({...del,status:true,id:elem._id})}><DeleteIcon/></Button></td>
                     </tr>)
                 })
             }
@@ -103,18 +65,18 @@ export default function AllQustion() {
     aria-labelledby="modal-modal-title"
     aria-describedby="modal-modal-description"
   >
-    <Box sx={style}>
+    <Box bgcolor='background.paper' boxShadow= {24} p= {4} className="modal-wrapper">
     <Typography sx={{textAlign:'start',fontSize:'12px',mb:3}}>
-      time : 6/7/2024
+      {data.time}
       </Typography>
       <Typography id="modal-modal-title" variant="h4" sx={{}}>
-       {data.name}
+       {data.question}
       </Typography>
       <Typography id="modal-modal-description" variant="body2" sx={{ mt: 1,}}>
-        {data.message}
+        {data.example}
       </Typography>
       <Typography id="modal-modal-description" sx={{ mt:4}}>
-      {data.email}
+      {data.answer}
       </Typography>
      <Box sx={{textAlign:'end'}}>
      <Button sx={{marginLeft:'auto'}} onClick={handleClose} variant="contained">OK</Button> 
@@ -123,19 +85,19 @@ export default function AllQustion() {
   </Modal>
 
   <Modal
-    open={del}
-    onClose={()=>setDel(false)}
+    open={del.status}
+    onClose={()=>setDel({...del,status:false})}
     aria-labelledby="modal-modal-title"
     aria-describedby="modal-modal-description"
   >
-    <Box sx={style}>
+    <Box bgcolor='background.paper' boxShadow= {24} p= {4} className="modal-wrapper">
    
       <Typography id="modal-modal-title" variant="h6" sx={{ mb: 3,textAlign:'center'}}>
        Are You sure !
       </Typography>
       
      <Box sx={{textAlign:'center'}}>
-     <Button sx={{marginLeft:'auto'}} onClick={()=>setDel(false)} variant="contained" color="error">Delete</Button> 
+     <Button sx={{marginLeft:'auto'}} onClick={()=>deleteQues(del.id)} variant="contained" color="error">Delete</Button> 
      </Box>
     </Box>
   </Modal>

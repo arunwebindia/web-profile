@@ -1,45 +1,129 @@
 import aic from '../assets/image/aic.jpg'
 import abic from '../assets/image/abic.jpg'
-import arunresume from '../assets/image/arunresume.pdf'
 import au from '../assets/image/au.png'
-
-import chetu from '../assets/image/chetu.jpg'
-import chetuSkill from '../assets/image/chetuSkill.jpg'
-import it from '../assets/image/it.jpg'
+import knit from '../assets/image/knit.jpeg'
 import html from '../assets/image/pngegg (1).png'
 import css from '../assets/image/pngegg (2).png'
 import js from '../assets/image/pngegg (3).png'
-import react from '../assets/image/pngegg (4).png'
+import rct from '../assets/image/pngegg (4).png'
 import node from '../assets/image/pngegg (5).png'
-import bootstrap from '../assets/image/pngegg (6).png'
-import mongodb from '../assets/image/pngegg (7).png'
-const allImage = {
-  html, css, js, react, node, bootstrap, mongodb
-}
-const navTabs = {
-  home: 'Home',
-  about: 'About',
-  education: 'Education',
-  skill: 'Skill',
-  experience: 'Experience',
-  myTask: 'My Tasks',
-  contact: 'Contact us',
-  profile: 'My Profile',
-  programming: 'Programming',
-  Functionality: 'Funcationality',
-  css: 'CSS Design',
-}
+import boot from '../assets/image/pngegg (6).png'
+import mongo from '../assets/image/pngegg (7).png'
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TelegramIcon from '@mui/icons-material/Telegram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
-export const aboutSection = {
-  heading: '',
-  subHeading: '',
-  des: "",
-  name: "",
-  email: '',
-  phone: "",
-  email: '',
-  experience: ""
-}
+export const nav =[
+  {
+    navname:"Profile",
+    path:'/'
+  },
+  {
+    navname:"My Tasks",
+    path:'/task'
+  },
+  {
+    navname:"My Project",
+    path:'/project'
+  },
+  {
+    navname:"Photo Gallery",
+    path:'/gallery'
+  },
+  {
+    navname:"Admin",
+    path:'/admin'
+  },
+  {
+    navname:"Contact us",
+    path:'/contact'
+  },
+];
+export const social_media =[
+  {
+    href:'https://www.facebook.com/hgsarun',
+    icon:<FacebookIcon />
+  },
+  {
+    href:'https://www.linkedin.com/in/hgsarunsingh/',
+    icon:<LinkedInIcon />
+  },
+  {
+    href:'https://t.me/arunwebindia',
+    icon:<TelegramIcon />
+  },
+  {
+    href:'https://github.com/arunwebindia',
+    icon:<GitHubIcon />
+  }
+]
+
+export const education_obj = [
+  {
+    collegeImage: aic,
+    education: 'High School',
+    college: 'Adarsh inter college mahuabagh ghazipur uttar pradesh.',
+    percentage: "64%"
+  },
+  {
+    collegeImage: abic,
+    education: 'Intermediate',
+    college: 'Angelo Bengali Inter College Civil Line Prayagraj Uttar Pradesh',
+    percentage: "70%"
+  },
+  {
+    collegeImage: au,
+    education: 'Bachelor of Science',
+    college: 'University of Allahabad prayagran Uttar Pradesh',
+    percentage: "50%"
+  },
+  {
+    collegeImage: knit,
+    education: 'Master of Computer application',
+    college: 'Kamla Nehru Institute of Technology Sultanpur Uttar Pradesh',
+    percentage: "86%"
+  }
+]
+
+export const skillObj=[
+  {
+    src:html,
+    name:'HTML',
+    progress:'90%'
+  },
+  {
+    src:css,
+    name:'CSS',
+    progress:'90%'
+  },
+  {
+    src:boot,
+    name:'BOOTSTRAP',
+    progress:'90%'
+  },
+  {
+    src:js,
+    name:'JAVASCRIPT',
+    progress:'90%'
+  },
+  {
+    src:rct,
+    name:'REACTJS',
+    progress:'90%'
+  },
+  {
+    src:node,
+    name:'NODE',
+    progress:'90%'
+  },
+  {
+    src:mongo,
+    name:'MONGO',
+    progress:'90%'
+  },
+]
+
 export const programming = [
   {
     ques: "Write a JavaScript function to convert a number from one base to another.",

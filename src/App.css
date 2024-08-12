@@ -1,10 +1,105 @@
 .close{
     display: none;
   }
-  .sidebar-wrapper{
+
+  /* side bar styling */
+.sidebar-wrapper{
     display: none;
   }
-  .homee{
+  .sidebar{
+    width: 250px;
+    position: fixed;
+    height: 100vh;
+    min-height: 400px;
+    padding: 16px;
+    color: white;
+    background-color: #2b4162;
+    background-image: linear-gradient(-189deg, #2b4162 0%, #12100e 74%);
+    z-index: 5
+  }
+
+  .close{
+     position: absolute;
+     left: 100%;
+     top: 0%; background: #073a65; color: white; padding: .5rem; font-size: 35px
+  }
+
+  .sidebar-container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+    height:100%;
+  }
+
+  .avatar-wrapper{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+.my-avatar-image{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+.social-media{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+/* sidebar styling end */
+/* store data css */
+.stordata-outer{
+background:#fff;padding:.5rem;height:300px;overflow:auto;
+}
+.storedata-btn{
+  color:blue;font-size:10px;color:white;
+}
+.storedata-btn-wrapper{
+  display: flex;
+  justify-content: start;
+  gap:.5rem
+}
+.storedata-modal{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400;
+  padding: 1rem,
+}
+/* store data css end*/
+.contact-msg-wrapper table{
+  border:1px solid #eef6ff8f;padding:1rem;border-collapse:collapse;background:#fff;border-radius:.2rem;overflow:hidden;width:100%
+
+}
+.contact-msg-wrapper thead{
+  background:#04041a;color:#fff
+
+}
+.contact-msg-wrapper th{
+  padding:1rem;text-align:start
+}
+.contact-msg-wrapper td{
+  padding:1rem;color:#151c1d
+}
+.contact-msg-wrapper tr{
+  border:.3px solid lightgray
+}
+
+.modal-wrapper{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+ 
+}
+
+.homee{
     background: linear-gradient(rgba(0, 0, 0, 0.726),rgba(0, 0, 0, 0.682)),url('https://res.cloudinary.com/dzmrolrxy/image/upload/v1721245632/arunnoida.jpg');
     background-size: cover;
 }

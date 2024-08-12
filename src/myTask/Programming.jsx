@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { Box } from '@mui/system'
-import Textarea from "@mui/joy/Textarea";
-import FormLabel from '@mui/joy/FormLabel';
 import { Typography } from '@mui/material';
 import Button from '@mui/material/Button';
-import Program from '../components/Program';
-import SendIcon from '@mui/icons-material/Send';
 import { Link } from 'react-router-dom';
 import { programming } from '../utility_files/utility';
+import axios from 'axios';
 
 export default function Programming({setProgramming}) {
  const [filterData,setFilterData] = useState(programming);
  const [num,setNum]= useState(0);
+ useEffect(()=>{
+  const fn = async ()=>{
+    const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/programming`);
+    setFilterData(res.data);
+    
+  }
+  fn();
+ },[])
 
  let numberofPage = Math.ceil(programming.length/10);
-
- console.log(filterData,'new updated data');
  useEffect(()=>{
   let start = num*10 +1;
   setFilterData(programming.slice(start,start+10));
@@ -46,7 +49,7 @@ export default function Programming({setProgramming}) {
               return (
                 <Box sx={{ padding: ".5rem",marginBottom:"1rem" }}> 
           <Typography sx={{ paddingBottom: ".5rem" }}>
-            {num*10 + index +1}. {elem.ques}
+            {num*10 + index +1}. {elem.question}
           </Typography>
          
           <Link to={'/task/programming/solution'} onClick={()=> setProgramming(elem)} >See solution</Link>

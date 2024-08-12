@@ -7,8 +7,13 @@ import { Typography } from '@mui/material';
 import Textarea from "@mui/joy/Textarea";
 import FormLabel from '@mui/joy/FormLabel';
 import { useFormik } from 'formik';
+import axios from "axios";
+import { ToastContainer, toast } from 'material-react-toastify';
+import 'material-react-toastify/dist/ReactToastify.css';
 
 export default function Contact() {
+  const notify = () => toast.success('Thank you for contact me.', {
+    position: "top-right"});
   const validate = values => {
     const errors = {};
     if (!values.name) {
@@ -18,8 +23,8 @@ export default function Contact() {
     }
     if (!values.message) {
       errors.message = 'Required';
-    } else if (values.message.length < 50) {
-      errors.message = 'Must be 50 characters or more';
+    } else if (values.message.length < 15) {
+      errors.message = 'Must be 15 characters or more';
     }
     if (!values.email) {
       errors.email = 'Required';
@@ -36,8 +41,17 @@ export default function Contact() {
       message: '',
     },
     validate,
-    onSubmit: values => {
-      console.log(values)
+    onSubmit: (values,{resetForm} )=> {
+      
+      const fetchformdata = async ()=>{
+        const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/contact`,values);
+        if(res.status === 200){
+          notify();
+          resetForm();
+        }
+      }
+      fetchformdata();
+
     },
   });
 
@@ -55,7 +69,7 @@ export default function Contact() {
           </Grid>
           <Grid lg={5} flexGrow={1}>
             <Box sx={{ padding: "1.5rem",backgroundColor:'#b9dcff33', border: ".3px solid #fff", borderRadius: '.5rem',}} boxShadow={"sm"}>
-              <form onSubmit={formik.handleSubmit} action="https://formsubmit.co/el/numaki" method="POST" target="_blank">
+              <form onSubmit={formik.handleSubmit}>
                 <Box sx={{ marginBottom: '1rem' }}>
                   <FormLabel sx={{marginBottom:'.5rem'}}>Name</FormLabel>
                   <Input
@@ -94,10 +108,7 @@ export default function Contact() {
           </Grid>
         </Grid>
       </Box>
-      {/* <Box sx={{minWidth:'250px',position:'fixed',top:'0',left:0}}>
-      <AdsComponent />
-      <AdsComp/>
-      </Box> */}
+      <ToastContainer />
     </Box>
   );
 }
