@@ -11,7 +11,7 @@ import 'material-react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 
 export default function Login({setLogin}) {
-  const notify = () => toast.error('Sorry we are getting errors', {
+  const notify = () => toast.error('Sorry we are getting wrong password?', {
     position: "top-right"});
   const validate = values => {
     const errors = {};
@@ -21,10 +21,10 @@ export default function Login({setLogin}) {
     } else if (values.username.length <4) {
       errors.username = 'Must be 8 characters or more';
     }
-    if (!values.username) {
-      errors.email = 'Required';
+    if (!values.password) {
+      errors.password = 'Required';
     } else if (values.password.length < 4) {
-      errors.email = 'Invalid email address';
+      errors.password = 'Invalid password';
     }
     return errors;
   };
