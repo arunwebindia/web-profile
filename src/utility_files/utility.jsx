@@ -27,10 +27,10 @@ export const nav =[
     navname:"My Project",
     path:'/project'
   },
-  {
-    navname:"Photo Gallery",
-    path:'/gallery'
-  },
+  // {
+  //   navname:"Photo Gallery",
+  //   path:'/gallery'
+  // },
   {
     navname:"Admin",
     path:'/admin'
