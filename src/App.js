@@ -14,6 +14,8 @@ import { Box } from '@mui/system';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
+import ProjectIndex from './project/ProjectIndex';
+import JavascriptCompiler from './project/JavascriptCompiler';
 function App() {
   const [open, setOpen] = useState(true);
   let [profile,setProfile] = useState(true);
@@ -36,6 +38,8 @@ function App() {
           <Route path="/task/jscomponent" element={<JScomponent/>}></Route>
           <Route path="/task/ui" element={<Ui/>}></Route>
           <Route path="/contact" element={<Contact/>}></Route>
+          <Route path="/project" element={<ProjectIndex/>}></Route>
+          <Route path="/project/1" element={<JavascriptCompiler/>}></Route>
           <Route path="/admin" element={login ? <Admin setLogin={setLogin}/> : <Login setLogin={setLogin}/>}></Route>
           <Route path='*' element={<PageNotFound/>}></Route> 
         </Routes>
