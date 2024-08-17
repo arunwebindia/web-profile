@@ -19,7 +19,7 @@ export default function Education() {
           {
             education_obj.map((elem, ind) => {
               return (
-                <Grid lg={6} key={ind}>
+                <Grid item lg={6} key={ind} sx={{width:'100%'}}>
                   <Card>
                     <CardActionArea sx={{ display: 'flex' }} className="education-cards">
                       <CardMedia

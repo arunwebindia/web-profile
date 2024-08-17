@@ -20,16 +20,16 @@ export default function About() {
 
           <Grid md={5} textAlign={"start"} >
             <Box sx={{minWidth:"280px"}}>
-            <Typography sx={{ padding: '.5rem 0' }}><span className='label'>Name</span> : <span className='name'>Arun Singh</span></Typography>
+            <Typography sx={{ padding: '1.2rem 0' }}><span className='label'>Name</span> : <span className='name'>Arun Singh</span></Typography>
             <hr />
-            <Typography sx={{ padding: '.5rem 0' }}><span className='label'>Email</span> : <span className='name'>hgsarun@gmail.com</span></Typography>
+            <Typography sx={{ padding: '1.2rem 0' }}><span className='label'>Email</span> : <span className='name'>hgsarun@gmail.com</span></Typography>
             <hr />
 
-            <Typography sx={{ padding: '.5rem 0' }}><span className='label'>Phone</span> : <span className='name'>+91 8601736322</span></Typography>
+            <Typography sx={{ padding: '1.2rem 0' }}><span className='label'>Phone</span> : <span className='name'>+91 8601736322</span></Typography>
             <hr />
-            <Typography sx={{ padding: '.5rem 0' }}><span className='label'>Experience</span> : <span className='name'>2+ year</span></Typography>
+            <Typography sx={{ padding: '1.2rem 0' }}><span className='label'>Experience</span> : <span className='name'>2+ year</span></Typography>
             <hr />
-            <Button variant="contained" sx={{ marginTop: '.5rem' }} onClick={()=>handleDownload(arunresume)}>Download cv</Button>
+            <Button variant="contained" sx={{ marginTop: '1rem' }} onClick={()=>handleDownload(arunresume)}>Download cv</Button>
             </Box>
             
           </Grid>

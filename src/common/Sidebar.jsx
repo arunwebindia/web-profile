@@ -36,10 +36,10 @@ export default function Sidebar(props) {
                 {
                   nav.map((elem,ind)=>{
                     return(<ListItem disablePadding key={ind}>
-                <ListItemButton>
-                  <NavLink to={elem.path}>{elem.navname}</NavLink>
-                </ListItemButton>
-              </ListItem>)
+                          <ListItemButton>
+                            <NavLink to={elem.path}>{elem.navname}</NavLink>
+                          </ListItemButton>
+                          </ListItem>)
                   })
                 }
               </List>
@@ -49,7 +49,7 @@ export default function Sidebar(props) {
             {
             social_media.map((elem,ind)=>{
               return (
-                <a href={elem.href} target="_blank" rel="noreferrer">
+                <a href={elem.href} target="_blank" rel="noreferrer" key={ind}>
               {elem.icon}
             </a>
               )

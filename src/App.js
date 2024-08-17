@@ -25,7 +25,7 @@ function App() {
     ansText:"",
     ansValue:''
   })
-  console.log('procenet env',process.env.REACT_APP_BASE_URL)
+
   return (
     <BrowserRouter>
       <Sidebar setOpen={setOpen} open={open} profile={profile} setProfile={setProfile}/>
