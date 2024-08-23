@@ -17,6 +17,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ProjectIndex from './project/ProjectIndex';
 import JavascriptCompiler from './project/JavascriptCompiler';
 import HtmlCompiler from './project/HtmlCompiler';
+import Donate from './project/Donate';
 function App() {
   const [open, setOpen] = useState(true);
   let [profile,setProfile] = useState(true);
@@ -42,6 +43,7 @@ function App() {
           <Route path="/project" element={<ProjectIndex/>}></Route>
           <Route path="/project/1" element={<JavascriptCompiler/>}></Route>
           <Route path="/project/2" element={<HtmlCompiler/>}></Route>
+          <Route path="/project/3" element={<Donate/>}></Route>
           <Route path="/admin" element={login ? <Admin setLogin={setLogin}/> : <Login setLogin={setLogin}/>}></Route>
           <Route path='*' element={<PageNotFound/>}></Route> 
         </Routes>
