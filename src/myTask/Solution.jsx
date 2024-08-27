@@ -23,7 +23,7 @@ export default function Solution({ programming }) {
         notify();
     }
     return (
-        <Box sx={{ width: '100%', minHeight: '100vh', display: 'flex', backgroundColor: '#ffd1c233', alignItems: 'center', justifyContent: 'center', padding: '1.5rem 0' }} id="solution">
+        <Box sx={{ width: '100%', minHeight: '100vh', display: 'flex', backgroundColor: '#ffd1c233', alignItems: 'center', justifyContent: 'center', padding: '0 1rem' }} id="solution">
             <Box className="section-wrapper" sx={{ maxWidth: '90%' }} width={'70%'}>
                 <Box className="ques-box" border={".3px solid lightblue"} p={1}>
                     <Box className="ques" sx={{ padding: '.5rem', fontSize: '1.6rem', borderLeft: '4px solid red', color: 'green' }}>

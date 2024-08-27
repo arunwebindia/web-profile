@@ -8,3 +8,8 @@
     box-sizing: border-box;
     font-family: 'Karla';
 }
+
+.mycontainer{
+    max-width: 992px;
+    margin:0 auto;
+}

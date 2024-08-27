@@ -14,7 +14,7 @@ export default function Donate() {
         window.location.href = 'https://razorpay.me/@arunsingh5414'
     }
   return (
-    <Box sx={{padding:'10px'}}>
+    <Box sx={{padding:'1rem'}}>
 <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         sx={{ height: 340 }}

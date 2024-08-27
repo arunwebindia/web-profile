@@ -39,7 +39,7 @@ export default function Programming({setProgramming}) {
   }
  }
   return (<>
-    <Box sx={{ width: '100%', minHeight: '100vh', padding: '1.2rem', backgroundColor: '#dcf7ff33', }} id="skill">
+    <Box sx={{ width: '100%', minHeight: '100vh', padding: '0 1rem', backgroundColor: '#dcf7ff33', }} id="skill">
       
         <Box sx={{ fontSize: '26px', padding: '.5rem 0', borderBottom: ".3px solid blue" }}>
           Javascript  based on <a href="https://www.w3resource.com/javascript-exercises/" target='_blank'>w3 resource</a>

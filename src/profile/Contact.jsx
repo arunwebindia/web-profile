@@ -57,17 +57,17 @@ export default function Contact() {
 
 
   return (
-    <Box sx={{ width: '100%', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}} id="contact">
-      <Box className="section-wrapper">
-        <Grid container spacing={6} m={0} className="contact-us" width="100%">
-          <Grid item lg={7} sx={{display:'flex',alignItems:"start",flexDirection:'column',justifyContent:'center',gap:".8rem"}}>
+    <Box sx={{ width: '100%',padding:'70px 1rem',background:"lightgray"}} id="contact">
+      <Box className="mycontainer">
+        <Grid container spacing={6}>
+          <Grid item lg={6} sx={{display:'flex',alignItems:"start",flexDirection:'column',justifyContent:'center',gap:".8rem"}}>
             <h1>Get in Touch</h1>
             <Typography sx={{textAlign:'start'}}>
 
            If you have any suggestion or If you any query please contact me.
             </Typography>
           </Grid>
-          <Grid item lg={5} flexGrow={1}>
+          <Grid item lg={6} flexGrow={1}>
             <Box sx={{ padding: "1.5rem",backgroundColor:'#b9dcff33', border: ".3px solid #fff", borderRadius: '.5rem',}} boxShadow={"sm"}>
               <form onSubmit={formik.handleSubmit}>
                 <Box sx={{ marginBottom: '1rem' }}>

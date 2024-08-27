@@ -12,25 +12,25 @@ import { CardActionArea } from '@mui/material';
 import knit from '../assets/image/knit.jpeg'
 import it from '../assets/image/it.jpg';
 import chetuSkill from '../assets/image/chetuSkill.jpg'
+import skillCenter from '../assets/image/skillCenter.jpg'
 import chetu from '../assets/image/chetu.jpg'
 
 export default function Project() {
  
   return (
-    <Box sx={{ width: '100%', minHeight: '100vh', display: 'flex', backgroundColor: '#ffd1c233', alignItems: 'center', justifyContent: 'center', padding: '1.5rem 0' }} id="project">
-      <Box className="section-wrapper">
-        <Typography variant="h4" component="div" p={4} textAlign={'center'}>
-          Experience
-        </Typography>
-        <Grid container spacing={2}>
-          <Grid lg={6}>
+    <Box sx={{ width: '100%',paddingBottom:'70px'}}>
+      <Box className="mycontainer">
+      <Box sx={{fontSize:"28px",fontWeight:700,borderBottom:"3px solid #ff824d",display:'inline-block'}}>My Skills</Box> 
+      <Typography color={'#5c6569'} mt={3}>adipisicing elit. Quis fugit itaque aspernatur totam ullam aliquid praesentium quia, qui animi nesciunt sunt tempora, explicabo accusamus nobis in, cupiditate ipsam nostrum beatae?</Typography>
+        <Grid container spacing={2} mt={3}>
+          <Grid sm={3}>
             <Card>
-              <CardActionArea sx={{ display: 'flex' }} className="education-cards">
+              <CardActionArea className="education-cards">
                 <CardMedia
                   component="img"
                   image={knit}
                   alt="green iguana"
-                  sx={{ width: '40%', height: '100%' }}
+                  sx={{ width: '100%', height: '100%' }}
                 />
                 <CardContent>
                   <Typography sx={{ fontSize: '1.2rem', display: 'inline-block', fontWeight: '700' }}>
@@ -48,15 +48,15 @@ export default function Project() {
               </CardActionArea>
             </Card>
           </Grid>
-          <Grid lg={6}>
-            <Card>
-              <CardActionArea sx={{ display: 'flex' }} className="education-cards">
+          <Grid sm={3}>
+            <Card sx={{height:'100%'}}>
+              <CardActionArea className="education-cards">
                 <CardMedia
                   component="img"
 
                   image={it}
                   alt="green iguana"
-                  sx={{ width: '40%', height: '100%' }}
+                  sx={{ width: '100%', height: '100%' }}
                 />
                 <CardContent>
                   <Typography sx={{ fontSize: '1.2rem', display: 'inline-block', fontWeight: '700' }}>
@@ -71,15 +71,15 @@ export default function Project() {
               </CardActionArea>
             </Card>
           </Grid>
-          <Grid lg={6}>
-            <Card>
-              <CardActionArea sx={{ display: 'flex' }} className="education-cards">
+          <Grid sm={3}>
+            <Card sx={{height:'100%'}}>
+              <CardActionArea className="education-cards">
                 <CardMedia
                   component="img"
 
-                  image={chetuSkill}
+                  image={skillCenter}
                   alt="green iguana"
-                  sx={{ width: '40%', height: '100%' }}
+                  sx={{ width: '100%',height:'90%',objectFit:'cover' }}
                 />
                 <CardContent>
                   <Typography sx={{ fontSize: '1.2rem', display: 'inline-block', fontWeight: '700' }}>
@@ -95,15 +95,15 @@ export default function Project() {
               </CardActionArea>
             </Card>
           </Grid>
-          <Grid lg={6}>
-            <Card>
-              <CardActionArea sx={{ display: 'flex' }} className="education-cards">
+          <Grid sm={3}>
+            <Card sx={{height:'100%'}}>
+              <CardActionArea className="education-cards">
                 <CardMedia
                   component="img"
 
                   image={chetu}
                   alt="green iguana"
-                  sx={{ width: '40%', height: '100%' }}
+                  sx={{ width: '100%', height: '100%' }}
                 />
                 <CardContent>
                   <Typography sx={{ fontSize: '1.2rem', display: 'inline-block', fontWeight: '700' }}>

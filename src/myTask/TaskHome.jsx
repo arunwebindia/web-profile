@@ -9,7 +9,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 export default function Skill() {
   let navigate = useNavigate();
   return (
-    <Box sx={{ width: '100%', minHeight: '100vh',padding:'1.2rem 0', display: 'flex',backgroundColor:'#dcf7ff33', alignItems: 'center', justifyContent: 'center' }} id="skill">
+    <Box sx={{ width: '100%', minHeight: '100vh',padding:'0 1rem', display: 'flex',backgroundColor:'#dcf7ff33', alignItems: 'center', justifyContent: 'center' }} id="skill">
     <Box className="section-wrapper">
       <Grid container spacing={2} justifyContent={'center'}>
         <Grid lg={3} md={4} sm={6}>

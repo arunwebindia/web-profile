@@ -16,8 +16,12 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 
 export const nav =[
   {
-    navname:"Profile",
+    navname:"Home",
     path:'/'
+  },
+  {
+    navname:"About",
+    path:'/about'
   },
   {
     navname:"My Tasks",
@@ -26,14 +30,6 @@ export const nav =[
   {
     navname:"My Project",
     path:'/project'
-  },
-  // {
-  //   navname:"Photo Gallery",
-  //   path:'/gallery'
-  // },
-  {
-    navname:"Admin",
-    path:'/admin'
   },
   {
     navname:"Contact us",
@@ -74,13 +70,13 @@ export const education_obj = [
   },
   {
     collegeImage: au,
-    education: 'Bachelor of Science',
+    education: 'B.SC',
     college: 'University of Allahabad prayagran Uttar Pradesh',
     percentage: "50%"
   },
   {
     collegeImage: knit,
-    education: 'Master of Computer application',
+    education: 'MCA',
     college: 'Kamla Nehru Institute of Technology Sultanpur Uttar Pradesh',
     percentage: "86%"
   }

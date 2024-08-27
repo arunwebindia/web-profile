@@ -4,12 +4,10 @@ import Programming from './myTask/Programming';
 import JScomponent from './myTask/JScomponent';
 import Solution from './myTask/Solution';
 import PageNotFound from './PageNotFound/PageNotFound';
-import Profile from './profile/Profile';
 import Contact from './profile/Contact';
 import Ui from './myTask/Ui';
 import Admin from './dashboard/Admin';
-import Login from './dashboard/Login';
-import Sidebar from './common/Sidebar';
+
 import { Box } from '@mui/system';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css';
@@ -18,22 +16,40 @@ import ProjectIndex from './project/ProjectIndex';
 import JavascriptCompiler from './project/JavascriptCompiler';
 import HtmlCompiler from './project/HtmlCompiler';
 import Donate from './project/Donate';
+import Navbar from './common/Navbar';
+import Header from './common/Header';
+import EmailExtractor from './project/EmailExtractor';
+import About from './about/About';
+import Home from './Home/Home';
+import Footer from './footer/Footer';
+import Login from './authentication/Login';
+import Register from './authentication/Register';
+import Forget from './authentication/Forget'
 function App() {
-  const [open, setOpen] = useState(true);
-  let [profile,setProfile] = useState(true);
   let [login,setLogin] =useState(false)
   let [programming,setProgramming] =useState({
     ques:"",
     ansText:"",
     ansValue:''
   })
-
   return (
     <BrowserRouter>
-      <Sidebar setOpen={setOpen} open={open} profile={profile} setProfile={setProfile}/>
-      <Box sx={{ marginLeft: "250px", width: "calc(100% - 250px)", height: "100vh", overflow: 'auto', position: 'relative'}} className="home">
+    {
+      login ? 
+      <Routes>
+        <Route path='/login' element={<Login setLogin={setLogin}></Login> }></Route>
+        <Route path='/register'  element={<Register setLogin={setLogin}/>}></Route>
+        <Route path='/forget'  element= {<Forget setForgot={setLogin}/>}></Route>
+      </Routes>
+      : 
+<>
+      <Box sx={{top:0,position:'sticky',zIndex:9}}>
+        <Header/>
+        <Navbar setLogin={setLogin}/>
+      </Box>
         <Routes>
-          <Route path='/' element={<Profile/>}></Route> 
+          <Route path='/' element={<Home/>}></Route> 
+          <Route path='/about' element={<About/>}></Route> 
           <Route path='/task' element={<TaskHome/>}></Route> 
           <Route path="/task/programming" element={<Programming setProgramming={setProgramming}/>}></Route>
           <Route path='/task/programming/solution' element={<Solution programming={programming}/>}></Route>
@@ -44,12 +60,13 @@ function App() {
           <Route path="/project/1" element={<JavascriptCompiler/>}></Route>
           <Route path="/project/2" element={<HtmlCompiler/>}></Route>
           <Route path="/project/3" element={<Donate/>}></Route>
-          <Route path="/admin" element={login ? <Admin setLogin={setLogin}/> : <Login setLogin={setLogin}/>}></Route>
+          <Route path="/project/4" element={<EmailExtractor/>}></Route>
+          <Route path="/admin" element={<Admin setLogin={setLogin}/>}></Route>
           <Route path='*' element={<PageNotFound/>}></Route> 
         </Routes>
-      </Box>
+        <Footer/>
+        </>}
     </BrowserRouter>
   );
 }
-
 export default App;
