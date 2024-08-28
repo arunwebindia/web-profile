@@ -33,24 +33,23 @@ export default function JavascriptCompiler() {
 
 return (
   <>
-    <Box sx={{ p: 2 }}>
-      {/* <Box sx={{ textAlign: "start", mb: 2 }}>
-        <Button size="small" variant='contained' onClick={runCode}>Run</Button>
-      </Box> */}
+  <Box>
+    <Box sx={{ p: 2 }} className='mycontainer'>
       <Grid container spacing={2}>
-        <Grid item md={6}>
+        <Grid item sm={6} xs={12}>
           <Box sx={{ borderRadius: "3px", height: "500px", overflow: 'auto',overflowX:'hidden',position:'relative' }}>
           <Button size="small" variant='contained' onClick={runCode} sx={{position:'absolute',right:'5%',bottom:'5%',zIndex:'10'}} >Run</Button>
             <Textarea spellcheck="false" sx={{ height: '99.95%', border: "0px", boxShadow: "none",background:'black',color:'white' }} onChange={(e) => setcode(e.target.value)} name="code" value={code} />
           </Box>
         </Grid>
-        <Grid item md={6}>
+        <Grid item sm={6} xs={12}>
           <Box sx={{ border: '.2px solid gray',borderRadius:'5px',p:2, height: "500px", overflow: 'auto',color:color }}  >
           {output}
           </Box>
         </Grid>
       </Grid>
     </Box>
+  </Box>
   </>
 )
 }

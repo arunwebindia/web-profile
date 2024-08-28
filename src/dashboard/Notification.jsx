@@ -32,11 +32,11 @@ export default function Notification(props) {
     
   return (
     <>
-    <Box sx={{margin:"auto",width:'100%',boxShadow:'sm',height:'300px',overflow:'auto'}} className="contact-msg-wrapper">
+    <Box sx={{margin:"auto",boxShadow:'sm',height:'calc(100% - 42px)',background:'#fff',overflow:'auto'}} className="contact-msg-wrapper">
     <table>
         <thead>
         <tr>
-        <th>S.No.</th>
+        
         <th>Name</th>
         <th>Email</th>
         <th>Message</th>
@@ -50,12 +50,12 @@ export default function Notification(props) {
                    
                     return (
                         <tr key={ind}>
-                            <td>{ind+1}</td>
+                           
                             <td>{elem?.name}</td>
-                            <td>{elem?.email}</td>
-                            <td>{elem?.message?.slice(0,20)}...</td>
-                            <td>{elem?.time}</td>
-                            <td><Button onClick={()=>handleOpen(elem)}><OpenInNewIcon/></Button><Button sx={{color:"red"}} onClick={()=>setDel({...del,status:true,id:elem._id})}><DeleteIcon/></Button></td>
+                            <td>{elem?.email?.slice(0,10)}</td>
+                            <td>{elem?.message?.slice(0,10)}...</td>
+                            <td>{elem?.time.slice(0,10)}</td>
+                            <td><Button onClick={()=>handleOpen(elem)} sx={{minWidth:'auto',padding:0}}><OpenInNewIcon/></Button><Button onClick={()=>setDel({...del,status:true,id:elem._id})} sx={{minWidth:'auto',padding:0,color:'red'}}><DeleteIcon/></Button></td>
                         </tr>
                     )
                 })

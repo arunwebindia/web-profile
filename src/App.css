@@ -1,3 +1,7 @@
+.main-color{
+  color: #1976d2;
+}
+
 .navbar a {
   text-decoration: none;
   padding: .5rem;
@@ -37,8 +41,9 @@
 .stordata-outer {
   background: #fff;
   padding: .5rem;
-  height: 300px;
+  height: 290px;
   overflow: auto;
+  box-sizing: padding-box;
 }
 
 .storedata-btn {
@@ -70,7 +75,8 @@
   background: #fff;
   border-radius: .2rem;
   overflow: hidden;
-  width: 100%
+  width: 100%;
+  min-width: 470px;
 }
 
 .contact-msg-wrapper thead {
@@ -79,15 +85,17 @@
 }
 
 .contact-msg-wrapper th {
-  padding: 1rem;
+  padding: .5rem;
   text-align: start
 }
 
 .contact-msg-wrapper td {
-  padding: 1rem;
+  padding: .5rem;
   color: #151c1d
 }
-
+.contact-msg-wrapper table tbody tr:nth-of-type(2n - 1){
+  background-color: rgb(209, 237, 242);
+}
 .contact-msg-wrapper tr {
   border: .3px solid lightgray
 }

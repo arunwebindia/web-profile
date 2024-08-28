@@ -4,6 +4,8 @@ import Button from '@mui/material/Button';
 import bannerImage from '../assets/image/banner_image.svg'
 import arunresume from '../assets/image/arunresume.pdf'
 import handleDownload from "../components/downloadImage";
+import { ToastContainer } from "react-toastify";
+import { toastError, toastSuccess } from "../toastify/AlertToast";
 export default function Banner() {
     function handleContact() {
         let a = document.createElement('a');
@@ -26,9 +28,8 @@ export default function Banner() {
                 <Box sx={{transform:'scale(.8)'}}>
                     <img src={bannerImage} alt=""  width={"100%"} height={"100%"}/>
                 </Box>
-                
             </Box>
-            
+            <ToastContainer />
         </Box>
     );
 }

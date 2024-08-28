@@ -25,7 +25,8 @@ function runCode(){
 }
   return (
     <>
-    <Box sx={{p:3,background:'#FFF'}}>
+    <Box>
+    <Box sx={{p:3,background:'#FFF'}} className="mycontainer">
         <Grid container  spacing={2}>
             <Grid item xs={12}>
                 <Grid container spacing={2}>
@@ -60,6 +61,7 @@ function runCode(){
                 </Box>
             </Grid>
         </Grid>
+    </Box>
     </Box>
     </>
   )

@@ -32,22 +32,17 @@ function App() {
     ansText:"",
     ansValue:''
   })
+
   return (
     <BrowserRouter>
-    {
-      login ? 
-      <Routes>
-        <Route path='/login' element={<Login setLogin={setLogin}></Login> }></Route>
-        <Route path='/register'  element={<Register setLogin={setLogin}/>}></Route>
-        <Route path='/forget'  element= {<Forget setForgot={setLogin}/>}></Route>
-      </Routes>
-      : 
-<>
       <Box sx={{top:0,position:'sticky',zIndex:9}}>
         <Header/>
-        <Navbar setLogin={setLogin}/>
+        <Navbar setLogin={setLogin} login={login}/>
       </Box>
         <Routes>
+          <Route path='/login' element={<Login setLogin={setLogin}></Login> }></Route>
+          <Route path='/register'  element={<Register setLogin={setLogin}/>}></Route>
+          <Route path='/forget'  element= {<Forget setForgot={setLogin}/>}></Route>
           <Route path='/' element={<Home/>}></Route> 
           <Route path='/about' element={<About/>}></Route> 
           <Route path='/task' element={<TaskHome/>}></Route> 
@@ -65,7 +60,7 @@ function App() {
           <Route path='*' element={<PageNotFound/>}></Route> 
         </Routes>
         <Footer/>
-        </>}
+       
     </BrowserRouter>
   );
 }

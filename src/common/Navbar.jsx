@@ -7,12 +7,18 @@ import {
     ListItemButton,
   } from "@mui/material";
 import {nav} from '../utility_files/utility'
-export default function Navbar({setLogin}) {
+export default function Navbar({setLogin,login}) {
     const [mobNav,setmobNav] = useState(false);
     const navigate = useNavigate();
     function handleLogin(){
-      setLogin(true);
-      navigate('/login')
+      if(login){
+        setLogin(false);
+      }
+      else{
+        setLogin(true);
+        navigate('/login');
+      }
+      
     }
   return (
     <>
@@ -38,7 +44,10 @@ export default function Navbar({setLogin}) {
                 } 
             </Box>
             <Button variant="contained" startIcon={<AccountCircleIcon />} color='success' onClick={handleLogin}>
-              Login
+             
+              {
+                login ? 'Logout' : 'Login'
+              }
             </Button>
         </MenuList>
         </Box>

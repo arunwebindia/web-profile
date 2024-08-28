@@ -18,7 +18,7 @@ export default function StoreData({ getdata, setdeletestore, deletstor }) {
 
   return (
     <>
-      <Box className="stordata-outer">
+      <Box className="stordata-outer" height={'calc(100% - 95px'}>
         {
           getdata?.map((elem, ind) => {
             return (

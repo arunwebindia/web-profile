@@ -1,22 +1,24 @@
 
 import { Button, Card, Typography } from '@mui/material'
-import { Box, fontWeight, width } from '@mui/system'
+import { Box} from '@mui/system'
 import Input from '@mui/joy/Input';
 import WebhookIcon from '@mui/icons-material/Webhook';
 import { useFormik } from 'formik';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LockIcon from '@mui/icons-material/Lock';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import { toastError,toastSuccess } from '../toastify/AlertToast';
+import { ToastContainer } from 'react-toastify';
 export default function Login({setLogin}) {
-    const [inputType,setInputType] = useState(true)
+    const [inputType,setInputType] = useState(true);
+    const navigate = useNavigate();
+   
     const validate = values => {
         const errors = {};
-       
         if (!values.username) {
           errors.username = 'Required';
         } else if (values.username.length <4) {
@@ -37,11 +39,15 @@ export default function Login({setLogin}) {
         },
         validate,
         onSubmit: async(values) => {
+          
           let res = await axios.post(`${process.env.REACT_APP_BASE_URL}/login`,values);
           if(res.data){
+            console.log('res.data')
             setLogin(true);
+            navigate('/');
           }
           else{
+            toastError("Invalid login credential")
             setLogin(false);
           }
         },
@@ -106,7 +112,9 @@ export default function Login({setLogin}) {
                     <Typography fontSize={"14px"} my={4} textAlign={'center'}>Don't have account? <Link to={'/register'}>create one</Link> </Typography>
                 </Box>
         </Card>
+
     </Box>
+    <ToastContainer/>
     </>
   )
 }

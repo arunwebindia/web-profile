@@ -14,10 +14,11 @@ export default function Donate() {
         window.location.href = 'https://razorpay.me/@arunsingh5414'
     }
   return (
-    <Box sx={{padding:'1rem'}}>
+
+    <Box sx={{padding:'1rem'}} className="mycontainer">
 <Card sx={{ maxWidth: 345 }}>
       <CardMedia
-        sx={{ height: 340 }}
+        sx={{ height: 320}}
         image="https://res.cloudinary.com/dzmrolrxy/image/upload/v1721245632/arunnoida.jpg"
         title="Arun singh"
       />

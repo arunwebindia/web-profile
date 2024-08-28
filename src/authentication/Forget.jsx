@@ -1,5 +1,5 @@
 
-import { Button, Card, FormLabel, Typography } from '@mui/material'
+import { Button, Card, Typography } from '@mui/material'
 import { Box, fontWeight, width } from '@mui/system'
 import Input from '@mui/joy/Input';
 import WebhookIcon from '@mui/icons-material/Webhook';
@@ -13,171 +13,133 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link } from 'react-router-dom';
 
 export default function Forget({ setLogin }) {
-  const [inputType, setInputType] = useState(true);
-  const [getOTP,setgetOTP]= useState({
-    getOtp:true,
-    sendOtp:false,
-    pass:false
-  })
-  // const validate = values => {
-  //   const errors = {};
+  const [inputType, setInputType] = useState(true)
+  const validate = values => {
+    const errors = {};
 
-  //   if (!values.mobile) {
-  //     errors.mobile = 'Required';
-  //   } else if (values.mobile.length < 4) {
-  //     errors.mobile = 'Must be 8 characters or more';
-  //   }
-  //   if (!values.password) {
-  //     errors.password = 'Required';
-  //   } else if (values.password.length < 4) {
-  //     errors.password = 'Invalid password';
-  //   }
-  //   if (!values.rpassword) {
-  //     errors.rpassword = 'Required';
-  //   } else if (values.rpassword.length < 4) {
-  //     errors.rpassword = 'Invalid password';
-  //   }
-  //   return errors;
-  // };
+    if (!values.username) {
+      errors.username = 'Required';
+    } else if (values.username.length < 4) {
+      errors.username = 'Must be 8 characters or more';
+    }
+    if (!values.password) {
+      errors.password = 'Required';
+    } else if (values.password.length < 4) {
+      errors.password = 'Invalid password';
+    }
+    return errors;
+  };
 
-  // const formik = useFormik({
-  //   initialValues: {
-  //     username: '',
-  //     password: '',
-  //   },
-  //   validate,
-  //   onSubmit: (values) => {
-  //     // let res = await axios.post(`${process.env.REACT_APP_BASE_URL}/login`,values);
+  const formik = useFormik({
+    initialValues: {
+      username: '',
+      password: '',
+    },
+    validate,
+    onSubmit: async (values) => {
+      let res = await axios.post(`${process.env.REACT_APP_BASE_URL}/login`, values);
+      if (res.data) {
+        setLogin(true);
+      }
+      else {
+        setLogin(false);
+      }
+    },
+  });
 
-  //   },
-  // });
-function handleGetOTP(e){
-e.preventDefault()
-  setgetOTP({...getOTP,getOtp:false,sendOtp:true});
-}
-function handleSendOTP(e){
-  e.preventDefault()
-  setgetOTP({...getOTP,sendOtp:false,pass:true});
-
-}
-function handlePass(e){
-  e.preventDefault()
-}
   return (
     <>
       <Box sx={{ height: "100vh", width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', background: 'lightgray' }}>
         <Card sx={{ padding: '3rem', minWidth: '30%' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', color: 'blue' }}><WebhookIcon /> <span>ARUNWEB</span></Box>
-          <Typography variant='h5' fontSize={'24px'} fontWeight={600} mt={2} mb={"0px"}>Forget Password</Typography>
+          <Typography variant='h5' fontSize={'24px'} fontWeight={600} mt={2} mb={"0px"}>Login to your account</Typography>
           <Typography color={'gray'} fontSize={'12px'} mb={3}>We welcome you please fill your credential.</Typography>
-          {
-            getOTP.getOtp ?
-            <form>
-              <Box sx={{ marginBottom: '1rem' }}>
-              <Box sx={{ position: 'relative' }}>
-                <Input
-                  type="number"
-                  size="sm"
-                  placeholder="Mobile Number"
-                  name="mobile"
-                  sx={{ padding: '10px', paddingLeft: "30px" }}
-                />
-                <AccountCircleIcon sx={{ position: 'absolute', left: '5px', top: '50%', transform: 'translate(0,-50%)', color: 'gray' }} />
-              </Box>
-              </Box>
-              <Box>
-              <Button type="submit" variant='contained' sx={{ width: "100%" }} onClick={handleGetOTP}>Get OTP</Button>
-            </Box>
-            </form>
-            :""
-          }
-          {
-            getOTP.sendOtp ? 
-            <form>
-              <Box sx={{ marginBottom: '1rem' }}>
-              <Box class="OTPinput" sx={{display:"flex",width:"100%",gap:"10px",justifyContent:"center",mb:3}}>
-            
-                      <input type="text" maxlength="1"  inputmode="numeric"/>
-                      <input type="text" maxlength="1" inputmode="numeric"/>
-                      <input type="text" maxlength="1" inputmode="numeric"/>
-                      <input type="text" maxlength="1" inputmode="numeric"/>
-                </Box>
-              </Box>
-              <Box>
-              <Button type="submit" variant='contained' sx={{ width: "100%" }} onClick={handleSendOTP}>Send OTP</Button>
-            </Box>
-            </form>
-            :""
-          }
-          {
-            getOTP.pass ? 
-            <form>
-            <Box sx={{ marginBottom: '1rem' }}>
-              <Box sx={{ marginBottom: '1rem' }}>
-                  <FormLabel sx={{marginBottom:'.5rem'}}>Password</FormLabel>
-                  <Input
-                    type="password"
-                    size="sm"
-                    name="password"
-                    placeholder="Password"
-                    
-                  />
-                </Box>
-                <Box sx={{ marginBottom: '1rem' }}>
-                  <FormLabel sx={{marginBottom:'.5rem'}}>Confirm Password</FormLabel>
-                  <Input
-                    type="password"
-                    size="sm"
-                    name="password"
-                    placeholder="Password"
-                    
-                  />
-                </Box>
-            </Box>
-            <Box>
-            <Button type="submit" variant='contained' sx={{ width: "100%" }} onSubmit={handlePass}>Submit</Button>
-          </Box>
-          </form>
-          :""
-          }
-          {/* <form onSubmit={formik.handleSubmit}>
+          <form onSubmit={formik.handleSubmit}>
+
             <Box sx={{ marginBottom: '1rem' }}>
               <Box sx={{ position: 'relative' }}>
                 <Input
-                  type="number"
+                  type="text"
                   size="sm"
-                  placeholder="Mobile Number"
-                  name="mobile"
+                  placeholder="Username"
+                  name="username"
                   sx={{ padding: '10px', paddingLeft: "30px" }}
                   onChange={formik.handleChange}
-                  value={formik.values.mobile}
+                  value={formik.values.username}
                 />
                 <AccountCircleIcon sx={{ position: 'absolute', left: '5px', top: '50%', transform: 'translate(0,-50%)', color: 'gray' }} />
               </Box>
-              {formik.errors.mobile ? <small>{formik.errors.mobile}</small> : null}
+
+              {formik.errors.username ? <small>{formik.errors.username}</small> : null}
             </Box>
+            <Box sx={{ marginBottom: '1rem' }}>
+              <Box sx={{ position: 'relative' }}>
+                <Input
+                  type="text"
+                  size="sm"
+                  placeholder="secretName"
+                  name="secretName"
+                  sx={{ padding: '10px', paddingLeft: "30px" }}
+                  onChange={formik.handleChange}
+                  value={formik.values.username}
+                />
+                <AccountCircleIcon sx={{ position: 'absolute', left: '5px', top: '50%', transform: 'translate(0,-50%)', color: 'gray' }} />
+              </Box>
+              {formik.errors.username ? <small>{formik.errors.username}</small> : null}
+            </Box>
+
+            <Box sx={{ marginBottom: '1rem' }}>
+              <Box sx={{ position: 'relative' }}>
+                <Input
+                  type={inputType ? 'password' : 'text'}
+                  size="sm"
+                  name="password"
+                  placeholder="Password"
+                  value={formik.values.password}
+                  sx={{ padding: '10px', paddingLeft: "30px" }}
+                  onChange={formik.handleChange}
+                />
+                <LockIcon sx={{ position: 'absolute', left: '5px', top: '50%', transform: 'translate(0,-50%)', color: 'gray' }} />
+                {
+                  inputType ?
+                    <VisibilityOffIcon sx={{ position: 'absolute', right: '5px', top: '50%', transform: 'translate(0,-50%)', color: 'gray' }} onClick={() => { setInputType(!inputType) }} />
+                    :
+                    <VisibilityIcon sx={{ position: 'absolute', right: '5px', top: '50%', transform: 'translate(0,-50%)', color: 'gray' }} onClick={() => { setInputType(!inputType) }} />
+                }
+              </Box>
+              {formik.errors.password ? <small>{formik.errors.password}</small> : null}
+            </Box>
+            <Box sx={{ marginBottom: '1rem' }}>
+            <Box sx={{ position: 'relative' }}>
+              <Input
+                type={inputType ? 'password' : 'text'}
+                size="sm"
+                name="cpassword"
+                placeholder="Confirm password"
+                value={formik.values.password}
+                sx={{ padding: '10px', paddingLeft: "30px" }}
+                onChange={formik.handleChange}
+              />
+              <LockIcon sx={{ position: 'absolute', left: '5px', top: '50%', transform: 'translate(0,-50%)', color: 'gray' }} />
               {
-                !getOTP ? 
-                ""
-                : 
-                <form>
-                   <Box class="OTPinput" sx={{display:"flex",width:"100%",gap:"10px",justifyContent:"center",mb:3}}>
-                      <input type="text" maxlength="1"  inputmode="numeric"/>
-                      <input type="text" maxlength="1" inputmode="numeric"/>
-                      <input type="text" maxlength="1" inputmode="numeric"/>
-                      <input type="text" maxlength="1" inputmode="numeric"/>
-                  </Box>
-                </form>
+                inputType ?
+                  <VisibilityOffIcon sx={{ position: 'absolute', right: '5px', top: '50%', transform: 'translate(0,-50%)', color: 'gray' }} onClick={() => { setInputType(!inputType) }} />
+                  :
+                  <VisibilityIcon sx={{ position: 'absolute', right: '5px', top: '50%', transform: 'translate(0,-50%)', color: 'gray' }} onClick={() => { setInputType(!inputType) }} />
               }
-            <Box>
-              <Button type="submit" variant='contained' sx={{ width: "100%" }}>Get OTP</Button>
             </Box>
-          </form> */}
-          <Box>
-            <Typography fontSize={"14px"} my={4} textAlign={'center'}>Go to<Link to={'/login'}>Login</Link> </Typography>
+            {formik.errors.password ? <small>{formik.errors.password}</small> : null}
           </Box>
-        </Card>
-      </Box>
+         
+          <Box>
+            <Button type="submit" variant='contained' sx={{ width: "100%" }}>Submit</Button>
+          </Box>
+        </form>
+        <Box>
+          <Typography fontSize={"14px"} my={4} textAlign={'center'}>I remember my password<Link to={'/login'}>Login now</Link> </Typography>
+        </Box>
+      </Card>
+    </Box >
     </>
   )
 }

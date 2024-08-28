@@ -35,6 +35,10 @@ export const nav =[
     navname:"Contact us",
     path:'/contact'
   },
+  {
+    navname:'Setting',
+    path:'/admin'
+  }
 ];
 export const social_media =[
   {

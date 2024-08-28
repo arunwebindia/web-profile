@@ -10,6 +10,7 @@ import { useFormik } from 'formik';
 import axios from "axios";
 import { ToastContainer, toast } from 'material-react-toastify';
 import 'material-react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Contact() {
   const notify = () => toast.success('Thank you for contact me.', {
@@ -59,7 +60,7 @@ export default function Contact() {
   return (
     <Box sx={{ width: '100%',padding:'70px 1rem',background:"lightgray"}} id="contact">
       <Box className="mycontainer">
-        <Grid container spacing={6}>
+        <Grid container spacing={6} sx={{padding:"10px"}}>
           <Grid item lg={6} sx={{display:'flex',alignItems:"start",flexDirection:'column',justifyContent:'center',gap:".8rem"}}>
             <h1>Get in Touch</h1>
             <Typography sx={{textAlign:'start'}}>
