@@ -15,6 +15,26 @@
   border-bottom: 4px solid #0e416b;
 }
 
+.profile-navigation a{
+  width: 100%;
+  border-bottom: unset;
+
+}
+.profile-navigation a.active,
+.profile-navigation a:hover {
+  width: 100%;
+  border-bottom: unset;
+  background-color: unset;
+}
+.profile-navigation a.active > div{
+  background-color: #1667a9;
+  border-left: 2px solid #0e416b;
+  color:#fff;
+}
+.profile-navigation a.active > div >div{
+  color:#fff
+}
+
 .avatar-wrapper {
   width: 100px;
   height: 100px;
@@ -76,9 +96,12 @@
   border-radius: .2rem;
   overflow: hidden;
   width: 100%;
-  min-width: 470px;
+  min-width:500px;
 }
-
+.contact-msg-wrapper table tbody{
+  max-height: 300px;
+  overflow: auto;
+}
 .contact-msg-wrapper thead {
   background: #04041a;
   color: #fff

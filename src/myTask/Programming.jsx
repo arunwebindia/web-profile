@@ -15,7 +15,7 @@ export default function Programming({ setProgramming }) {
       setFilterData(res.data);
     }
     fn();
-  }, [])
+  })
 
   let numberofPage = Math.ceil(programming.length / 10);
 

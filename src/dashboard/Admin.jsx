@@ -14,7 +14,11 @@ import Textarea from "@mui/joy/Textarea";
 import Modal from '@mui/material/Modal';
 import axios from 'axios';
 import ImportantDevicesIcon from '@mui/icons-material/ImportantDevices';
-import { display } from '@mui/system';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import TerminalIcon from '@mui/icons-material/Terminal';
+import EditNoteIcon from '@mui/icons-material/EditNote';
+import AttachmentIcon from '@mui/icons-material/Attachment';
+import { Input } from '@mui/material';
 
 export default function Admin({ setLogin }) {
     const [getdata, setgetdata] = useState([])
@@ -24,7 +28,9 @@ export default function Admin({ setLogin }) {
     const [deletreply, setdeletereply] = useState(false)
     const [storeValue, setStoreValue] = useState('')
     const [open, setOpen] = useState(false);
-    const [addprogram, setaddprogram] = useState({ status: false })
+    const [addprogram, setaddprogram] = useState({ status: false });
+    const [addfile, setAddFile] = useState({ status: false });
+    const [fileDes,setFileDes] = useState('')
     const [programming, setprogramming] = useState({ question: '', example: '', answer: '' })
     const [allreply, setallreply] = useState(null)
     useEffect(() => {
@@ -47,24 +53,33 @@ export default function Admin({ setLogin }) {
     const handleSaveStore = async (e) => {
         e.preventDefault();
         const resp = await axios.post(`${process.env.REACT_APP_BASE_URL}/store`, { data: storeValue });
-
         setupdatadata(!updatagetdata);
         handleClose()
     }
     const handleProgrammingdata = async (e) => {
         e.preventDefault()
-
         const resp = await axios.post(`${process.env.REACT_APP_BASE_URL}/programming`, programming);
+        console.log(resp.data,'get data')
         setaddprogram({ status: !addprogram });
     }
+ const handlefileupload = async(e)=>{
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const resp = await axios.post(`${process.env.REACT_APP_BASE_URL}/store`, fd);
 
+    // fetch('http://localhost:8080/',{
+    //     method:'POST',
+    //     body:fd
+    // }).then((res)=>console.log(res))
+    setAddFile({status:false})
+ }
     return (
         <>
             <Box sx={{ padding: '.5rem', background: 'lightgray', minHeight: '100vh' }}>
-                <Box className="mycontainer">
+                <Box className="mycontainer" px={1}>
                     <Box>
                         <Grid container spacing={1} paddingBottom={"8px"}>
-                            <Grid item md={4} sm={5} xs={12} container>
+                            <Grid item md={4} xs={12} container>
                                 <Grid item xs={6}>
                                     <Card sx={{ Width: "100%" }}>
                                         <CardContent textAlign={'center'} >
@@ -138,35 +153,48 @@ export default function Admin({ setLogin }) {
                                     </Card>
                                 </Grid>
                             </Grid>
-                            <Grid item md={8} sm={7} xs={12}>
+                            <Grid item  md={8} xs={12}>
                                 <Box height={"100%"} >
-                                    <Typography sx={{ padding: ".25rem", fontSize: "20px", background: '#fff', marginBottom: '.25rem' }}>All messages</Typography>
+                                    <Card sx={{marginBottom: '.25rem'}}>
+
+                                    <Typography sx={{ padding: ".25rem", fontSize: "20px", background: '#fff',display:"flex",alignItems:'center',gap:'10px' }}>
+                                    <ContactMailIcon/>  All messages</Typography>
+                                    </Card>
                                     <Notification></Notification>
                                 </Box>
                             </Grid>
                         </Grid>
                     </Box>
                     <Box>
-                        <Grid container spacing={2}>
+                        <Grid container spacing={1}>
                             <Grid item xs={12}>
-                                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#fff', marginBottom: '.25rem', padding: '.25rem' }}>
-                                    <Typography sx={{ padding: ".25rem", fontSize: "20px" }}>All programming</Typography>
+                            <Card sx={{ marginBottom: '.25rem'}}>
+                                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#fff', padding: '.25rem' }}>
+                                   <Typography sx={{ padding: ".25rem", fontSize: "20px",display:'flex',alignItems:'center',gap:'10px' }}><TerminalIcon/>  All programming</Typography>
                                     <Button variant='contained' size='small' onClick={() => setaddprogram({ ...addprogram, status: true })} >Add</Button>
                                 </Box>
+                                </Card> 
+                                <Card sx={{padding:'10px'}}>
+
                                 <AllQustion addprogram={addprogram.status}></AllQustion>
+                                </Card>
                             </Grid>
                             <Grid item sm={6} xs={12}>
-                                <Typography sx={{ padding: ".25rem", fontSize: "20px", background: '#fff', marginBottom: '.25rem' }}>Get solutions</Typography>
+                            <Card sx={{ marginBottom: '.25rem'}}>
+                                <Typography sx={{ padding: ".55rem", fontSize: "20px", background: '#fff' }}>Get solutions</Typography>
+                               </Card>
                                 <Question />
                             </Grid>
                             <Grid item sm={6} xs={12}>
-                                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#fff', marginBottom: '.25rem', padding: '.25rem' }}>
+                            <Card sx={{ marginBottom: '.25rem'}}>
+                                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#fff',  padding: '.25rem' }}>
                                     <Typography sx={{ padding: ".25rem", fontSize: "20px" }}>All store Data</Typography>
-                                    <div><Button variant='contained' size='small' sx={{ marginRight: '5px' }} onClick={() => setOpen(true)}>Add text</Button><Button variant='contained' size='small' >Add File</Button></div>
+                                    <Box sx={{display:'flex',gap:"8px"}}><Avatar size="small" sx={{ cursor: 'pointer' }} onClick={() => setOpen(true)}><EditNoteIcon/></Avatar><Avatar sx={{ cursor: 'pointer' }} onClick={()=>setAddFile({status:true})}><AttachmentIcon/></Avatar></Box>
                                 </Box>
+                                </Card>
+                           
                                 <StoreDataa getdata={getdata} setdeletestore={setdeletestore} deletstor={deletstor} />
                             </Grid>
-                           
                         </Grid>
                     </Box>
                 </Box>
@@ -181,6 +209,25 @@ export default function Admin({ setLogin }) {
                     <form onSubmit={handleSaveStore}>
                         <Box py={3}>
                             <Textarea placeholder="Type anything…" sx={{ width: '100%' }} minRows={4} value={storeValue} onChange={(e) => setStoreValue(e.target.value)} autoComplete='false' />
+                        </Box>
+                        <Button variant="contained" sx={{ display: 'block', marginLeft: "auto" }} type='submit'>Save</Button>
+                    </form>
+                </Box>
+            </Modal>
+
+            <Modal
+                open={addfile.status}
+                onClose={()=>setAddFile({status:false})}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box bgcolor='background.paper' boxShadow={24} p={4} className="modal-wrapper">
+                    <form onSubmit={handlefileupload} encType='multipart/form-data'>
+                        <Box py={3}>
+                            <Input type="text" name='data' value={fileDes} onChange={(e)=>setFileDes(e.target.value)}></Input>
+                        </Box>
+                        <Box py={3}>
+                            <Input type="file" name='file'></Input>
                         </Box>
                         <Button variant="contained" sx={{ display: 'block', marginLeft: "auto" }} type='submit'>Save</Button>
                     </form>

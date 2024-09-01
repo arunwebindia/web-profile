@@ -13,7 +13,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link, useNavigate } from 'react-router-dom';
 import { toastError,toastSuccess } from '../toastify/AlertToast';
 import { ToastContainer } from 'react-toastify';
-export default function Login({setLogin}) {
+export default function Login({setLogin,setLogInActive}) {
     const [inputType,setInputType] = useState(true);
     const navigate = useNavigate();
    
@@ -42,9 +42,10 @@ export default function Login({setLogin}) {
           
           let res = await axios.post(`${process.env.REACT_APP_BASE_URL}/login`,values);
           if(res.data){
-            console.log('res.data')
             setLogin(true);
+            setLogInActive(false)
             navigate('/');
+            
           }
           else{
             toastError("Invalid login credential")
