@@ -16,23 +16,27 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 
 export const nav =[
   {
-    navname:"Home",
+    navname:"HOME",
     path:'/'
   },
   {
-    navname:"About",
+    navname:"ABOUT",
     path:'/about'
   },
   {
-    navname:"My Tasks",
+    navname:"JAVASCRIPT",
     path:'/task'
   },
   {
-    navname:"My Project",
+    navname:"CSS",
+    path:'/css'
+  },
+  {
+    navname:"PROJECTS",
     path:'/project'
   },
   {
-    navname:"Contact us",
+    navname:"CONTACT US",
     path:'/contact'
   }
 ];

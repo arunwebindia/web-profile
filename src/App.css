@@ -2,29 +2,40 @@
   color: #1976d2;
 }
 
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: .2rem;
+  align-items: center;
+  color: #1976d2;
+}
 .navbar a {
   text-decoration: none;
   padding: .5rem;
-  color: inherit;
   border-bottom: 4px solid transparent;
+  font-size: inherit;
+  font-size: 14px;
 }
 
 .navbar a.active,
 .navbar a:hover {
-  background-color: #1667a9;
-  border-bottom: 4px solid #0e416b;
+  border-bottom: 2px solid #c5921a;
+  color:#997f17;
+  font-weight: 600;
 }
 
 .profile-navigation a{
   width: 100%;
   border-bottom: unset;
-
+  color:#1667a9;
 }
 .profile-navigation a.active,
 .profile-navigation a:hover {
   width: 100%;
   border-bottom: unset;
   background-color: unset;
+  color:#fff;
 }
 .profile-navigation a.active > div{
   background-color: #1667a9;
@@ -186,6 +197,7 @@ label {
 
 .name {
   font-weight: bold;
+  color:#027a
 }
 
 .education-cards,
@@ -215,17 +227,6 @@ div#google_translate_element {
   transition: all .5s ease-in-out;
 }
 
-.navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: .2rem;
-  align-items: center;
-
-  background-color: #1976d2;
-  color: white;
-
-}
 
 .menubar {
   display: flex;

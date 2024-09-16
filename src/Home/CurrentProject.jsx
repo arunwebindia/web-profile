@@ -14,9 +14,10 @@ function handleProjec(){
 }
   return (
     <>
-    <Box sx={{padding:"80px 16px",background:'lightgray'}}>
-        <Box className="mycontainer">
-          <Grid container spacing={2} justifyContent={"space-between"}>
+    <Box sx={{padding:"16px"}}>
+      <Box className="mycontainer" p={1}>
+      <Box  p={4} backgroundColor={'#fbfbfb'} borderRadius={'5px'}>
+          <Grid container spacing={2} justifyContent={"space-between"} >
             <Grid item sm={5}>
               <Box sx={{fontSize:"28px",fontWeight:700,borderBottom:"3px solid #ff824d",display:'inline-block'}}>Visit my project</Box> 
               <Typography sx={{paddingTop:'20px'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores totam aut eligendi? Deleniti, amet temporibus! Maiores ab error natus? Asperiores, corporis sit! Magni explicabo possimus suscipit fugiat dolores eum aliquam.</Typography>
@@ -44,6 +45,8 @@ function handleProjec(){
             
           </Grid>
         </Box>
+      </Box>
+        
     </Box>
     </>
   )

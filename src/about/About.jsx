@@ -3,7 +3,8 @@ import Education from '../profile/Education'
 import Skill from '../profile/Skill'
 import Contact from '../profile/Contact'
 import Project from '../profile/Project'
-import Banner from '../profile/Banner'
+import Banner from '../components/Banner'
+
 
 export default function About(){
   return (

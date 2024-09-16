@@ -38,9 +38,9 @@ export default function Navbar({ setLogin, login,setLogInActive }) {
   }
   return (
     <>
-      <Box sx={{ background: "#1976d2" }}>
+      <Box sx={{ background: "#FFF",boxShadow: "rgba(0, 0, 0, 0.15) 0px 3px 3px 0px"}}>
         <Box className="mycontainer">
-          <MenuList className="navbar" sx={{ padding: '.6rem' }}>
+          <MenuList className="navbar" sx={{ padding: '.6rem' ,background: "#FFF"}}>
 
             <Box class="sideBtn" onClick={() => setmobNav(true)} >
               <MenuIcon></MenuIcon>
@@ -69,10 +69,10 @@ export default function Navbar({ setLogin, login,setLogInActive }) {
                 !profile ? "" :
                   <Box sx={{
                     position: 'absolute', top: '115%', right: '0px',
-                    border: '.2px solid lightgray', boxShadow: 'small', background: '#eaf5ff', borderRadius: '5px', color: '#000'
+                    border: '.2px solid lightgray', boxShadow: 'small', background: '#eaf5ff', borderRadius: '5px', color: '#000' ,fontSize:'.8rem'
                   }}>
 
-                    <List className='profile-navigation'>
+                    <List className='profile-navigation' >
                       <ListItem disablePadding>
                         <NavLink to={'/profile'}>
                           <ListItemButton onClick={()=>setprofile(false)}>

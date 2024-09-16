@@ -1,11 +1,11 @@
 import { useState} from 'react'
-import TaskHome from './myTask/TaskHome';
-import Programming from './myTask/Programming';
-import JScomponent from './myTask/JScomponent';
-import Solution from './myTask/Solution';
+import TaskHome from './javascript/TaskHome';
+import Programming from './javascript/Programming';
+import JScomponent from './javascript/JScomponent';
+import Solution from './javascript/Solution';
 import PageNotFound from './PageNotFound/PageNotFound';
 import Contact from './profile/Contact';
-import Ui from './myTask/Ui';
+import Ui from './javascript/Ui';
 import Admin from './dashboard/Admin';
 
 import { Box } from '@mui/system';
@@ -28,13 +28,17 @@ import Forget from './authentication/Forget'
 import AdminProfile from './dashboard/profile/AdminProfile';
 function App() {
   let [login,setLogin] =useState(false);
-  let [loginActive,setLogInActive] =useState(false)
+  let [loginActive,setLogInActive] =useState(false);
+  const [token,setToken] = useState()
   let [programming,setProgramming] =useState({
     ques:"",
     ansText:"",
     ansValue:''
   })
-
+  if(token){
+    return <Login></Login>
+  }
+  else{
   return (
     <BrowserRouter>
       <Box sx={{top:0,position:'sticky',zIndex:9}}>
@@ -75,5 +79,7 @@ function App() {
        
     </BrowserRouter>
   );
+}
+    
 }
 export default App;
