@@ -58,16 +58,9 @@ export default function Contact() {
 
 
   return (
-    <Box sx={{ width: '100%',padding:'70px 1rem',background:"lightgray"}} id="contact">
+    <Box sx={{ width: '100%',padding:'30px',background:"lightgray"}}>
       <Box className="mycontainer">
         <Grid container spacing={6} sx={{padding:"10px"}}>
-          <Grid item lg={6} sx={{display:'flex',alignItems:"start",flexDirection:'column',justifyContent:'center',gap:".8rem"}}>
-            <h1>Get in Touch</h1>
-            <Typography sx={{textAlign:'start'}}>
-
-           If you have any suggestion or If you any query please contact me.
-            </Typography>
-          </Grid>
           <Grid item lg={6} flexGrow={1}>
             <Box sx={{ padding: "1.5rem",backgroundColor:'#b9dcff33', border: ".3px solid #fff", borderRadius: '.5rem',}} boxShadow={"sm"}>
               <form onSubmit={formik.handleSubmit}>
@@ -106,6 +99,13 @@ export default function Contact() {
                 </Box>
               </form>
             </Box>
+          </Grid>
+          <Grid item lg={6} sx={{display:'flex',alignItems:"start",flexDirection:'column',justifyContent:'center',gap:".8rem"}}>
+            <h1>Get in Touch</h1>
+            <Typography sx={{textAlign:'start'}}>
+
+           If you have any suggestion or If you any query please contact me.
+            </Typography>
           </Grid>
         </Grid>
       </Box>

@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions, Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
-
+import js from '../assets/image/js.png'
 export default function CurrentProject() {
 const navigate = useNavigate();
 function handleProjec(){
@@ -16,17 +16,17 @@ function handleProjec(){
     <>
     <Box sx={{padding:"16px"}}>
       <Box className="mycontainer" p={1}>
-      <Box  p={4} backgroundColor={'#fbfbfb'} borderRadius={'5px'}>
-          <Grid container spacing={2} justifyContent={"space-between"} >
+      <Box  p={4} backgroundColor={'#fffdf3'} borderRadius={'5px'}>
+          <Grid container spacing={2} justifyContent={"space-between"} alignItems={'center'}>
             <Grid item sm={5}>
-              <Box sx={{fontSize:"28px",fontWeight:700,borderBottom:"3px solid #ff824d",display:'inline-block'}}>Visit my project</Box> 
-              <Typography sx={{paddingTop:'20px'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores totam aut eligendi? Deleniti, amet temporibus! Maiores ab error natus? Asperiores, corporis sit! Magni explicabo possimus suscipit fugiat dolores eum aliquam.</Typography>
-              <Button variant='outlined' sx={{marginTop:'30px'}} onClick={()=>navigate('/project')}>More project</Button>
+              <Box sx={{fontSize:"28px",fontWeight:700,color:'#897514',padding:'10px 0',borderBottom:"3px solid #ff824d",display:'inline-block'}}>Visit my project</Box> 
+              <Typography sx={{paddingTop:'20px',color:'#888888'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores totam aut eligendi? Deleniti, amet temporibus! Maiores ab error natus? Asperiores, corporis sit! Magni explicabo possimus suscipit fugiat dolores eum aliquam.</Typography>
+              <Button variant='contained' sx={{marginTop:'30px'}} onClick={()=>navigate('/project')}>More project</Button>
             </Grid>
             <Grid item sm={4}>
-            <Card sx={{ maxWidth: "100%",height:"100%",display:'flex',flexDirection:'column',justifyContent:"start",gap:'10px' }}>
-              <Box sx={{textAlign:'center',bgcolor:"#cfe1ff",minHeight:"150px",display:'flex',justifyContent:'center',alignItems:'center'}}>
-              <svg width="102px" height="102px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#514d4d"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 19H21M6 17H18C19.1046 17 20 16.1046 20 15V8C20 6.89543 19.1046 6 18 6H6C4.89543 6 4 6.89543 4 8V15C4 16.1046 4.89543 17 6 17Z" stroke="#656161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            <Card sx={{ maxWidth: "300px",height:"100%",display:'flex',flexDirection:'column',justifyContent:"start",gap:'10px' }}>
+              <Box sx={{textAlign:'center',padding:'10px',bgcolor:"#cfe1ff",minHeight:"auto",display:'flex',justifyContent:'center',alignItems:'center'}}>
+              <img src={js} alt="" width={'50%'} height={'auto'}/>
               </Box>
             
               <CardContent>
@@ -37,8 +37,8 @@ function handleProjec(){
                   Here you can find basic javascript online compiler that is  help to run your javascript code.
                 </Typography>
               </CardContent>
-              <CardActions sx={{flexGrow:'1',alignContent:'end'}}>
-                <Button size="small" variant='contained' onClick={handleProjec}>Open</Button>
+              <CardActions sx={{flexGrow:'1',alignContent:'end',textAlign:'end'}}>
+                <Button size="small" variant='outlined' onClick={handleProjec} sx={{width:'100%'}}>Open</Button>
               </CardActions>
             </Card>
             </Grid>

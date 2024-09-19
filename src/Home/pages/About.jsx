@@ -12,9 +12,9 @@ export default function About() {
   const navigate = useNavigate();
   return (
     <Box sx={{ width: '100%'}}>
-      <Box className="mycontainer" p={4}>
+      <Box className="mycontainer" p={3}>
 
-        <Grid container spacing={6} borderRadius={2} justifyContent={'space-between'} p={2} backgroundColor={"#eefbff"}>
+        <Grid container spacing={4} borderRadius={2} justifyContent={'space-between'} alignItems={'center'} backgroundColor={"#eefbff"}>
           <Grid item sm={4}>
             <Box sx={{position:'relative'}}>
               <Box sx={{width:"100%",height:'100%',background:"#027a9e",position:'absolute',left:0,top:0,borderRadius:'5px'}}>

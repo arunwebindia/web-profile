@@ -1,7 +1,7 @@
 import React from 'react'
 import Education from '../profile/Education'
 import Skill from '../profile/Skill'
-import Contact from '../profile/Contact'
+import Contact from '../components/Contact'
 import Project from '../profile/Project'
 import Banner from '../components/Banner'
 

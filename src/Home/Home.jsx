@@ -1,7 +1,7 @@
 import React from 'react'
 import Banner from '../components/Banner'
 import About from './pages/About'
-import Contact from '../profile/Contact'
+import Contact from '../components/Contact'
 import CurrentProject from './CurrentProject'
 import CurrentWorking from './CurrentWorking'
 

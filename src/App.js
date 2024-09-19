@@ -4,10 +4,9 @@ import Programming from './javascript/Programming';
 import JScomponent from './javascript/JScomponent';
 import Solution from './javascript/Solution';
 import PageNotFound from './PageNotFound/PageNotFound';
-import Contact from './profile/Contact';
+import Contact from './components/Contact';
 import Ui from './javascript/Ui';
 import Admin from './dashboard/Admin';
-
 import { Box } from '@mui/system';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css';
