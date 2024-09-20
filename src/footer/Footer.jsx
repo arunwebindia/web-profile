@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom'
 export default function Footer() {
   return (
     <>
-    <Box sx={{minHeight:"100px",background:'#8b8b8b'}}>
+    <Box sx={{minHeight:"200px",background:'#8b8b8b',padding:'70px 10px'}}>
       <Box className="mycontainer" p={2}>
         <Grid container spacing={4}>
           <Grid item sm={2}>
@@ -17,30 +17,30 @@ export default function Footer() {
           </Grid>
           <Grid item sm={4}>
             <Box sx={{color:'#fff'}}>
-              <Typography>ArunWeb</Typography>
-              <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores totam aut eligendi? Deleniti, amet temporibus! Maiores ab error natus?</Typography>
+              <Typography variant='h5' borderBottom={"4px solid orangered"} display={"inline-block"} mb={3}>ARUNWEB</Typography>
+              <Typography fontSize={"14px"} lineHeight={2} opacity={'.3'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores totam aut eligendi? Deleniti, amet temporibus! Maiores ab error natus?</Typography>
             </Box>
           </Grid>
           <Grid item sm={3}>
-            <Box sx={{color:'#fff'}}>
-              <Typography>Menus</Typography>
-              <MenuItem sx={{display:"flex",flexDirection:'column',alignItems:'start'}}>
-                    <ListItemButton sx={{ p: 0 }}>
-                      <NavLink>Home</NavLink>
+            <Box sx={{color:'#fff'}} className="footer-menu">
+              <Typography paddingLeft={2}>Menus</Typography>
+              <ul >
+                    <ListItemButton>
+                      <NavLink to='/'>Home</NavLink>
                     </ListItemButton>
-                    <ListItemButton sx={{ p: 0 }}>
-                      <NavLink>Home</NavLink>
+                    <ListItemButton>
+                      <NavLink>About</NavLink>
                     </ListItemButton>
-                    <ListItemButton sx={{ p: 0 }}>
-                      <NavLink>Home</NavLink>
+                    <ListItemButton>
+                      <NavLink>JavaScript</NavLink>
                     </ListItemButton>
-                    <ListItemButton sx={{ p: 0 }}>
-                      <NavLink>Home</NavLink>
+                    <ListItemButton>
+                      <NavLink>CSS</NavLink>
                     </ListItemButton>
-                    <ListItemButton sx={{ p: 0 }}>
-                      <NavLink>Home</NavLink>
+                    <ListItemButton>
+                      <NavLink>Project</NavLink>
                     </ListItemButton>
-              </MenuItem>
+              </ul>
             </Box>
           </Grid>
         </Grid>
