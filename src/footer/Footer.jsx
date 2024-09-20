@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom'
 export default function Footer() {
   return (
     <>
-    <Box sx={{minHeight:"200px",background:'#8b8b8b',padding:'70px 10px'}}>
+    <Box sx={{minHeight:"200px",background:'#f2f2f2',padding:'70px 10px'}}>
       <Box className="mycontainer" p={2}>
         <Grid container spacing={4}>
           <Grid item sm={2}>
@@ -16,7 +16,7 @@ export default function Footer() {
             
           </Grid>
           <Grid item sm={4}>
-            <Box sx={{color:'#fff'}}>
+            <Box sx={{color:'#343939'}}>
               <Typography variant='h5' borderBottom={"4px solid orangered"} display={"inline-block"} mb={3}>ARUNWEB</Typography>
               <Typography fontSize={"14px"} lineHeight={2} opacity={'.3'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores totam aut eligendi? Deleniti, amet temporibus! Maiores ab error natus?</Typography>
             </Box>
