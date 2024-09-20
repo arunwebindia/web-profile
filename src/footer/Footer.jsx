@@ -22,7 +22,7 @@ export default function Footer() {
             </Box>
           </Grid>
           <Grid item sm={3}>
-            <Box sx={{color:'#fff'}} className="footer-menu">
+            <Box className="footer-menu">
               <Typography paddingLeft={2}>Menus</Typography>
               <ul >
                     <ListItemButton>
