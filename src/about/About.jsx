@@ -1,9 +1,10 @@
 import React from 'react'
-import Education from '../profile/Education'
-import Skill from '../profile/Skill'
+import Education from './Education'
+import Skill from './Skill'
 import Contact from '../components/Contact'
-import Project from '../profile/Project'
-import Banner from '../components/Banner'
+import Project from './Project'
+import Banner from './Banner'
+
 
 
 export default function About(){

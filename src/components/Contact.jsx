@@ -48,16 +48,14 @@ export default function Contact() {
     },
     validate,
     onSubmit: (values,{resetForm} )=> {
-      
       const fetchformdata = async ()=>{
         const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/contact`,values);
+        resetForm();
         if(res.status === 200){
           notify();
-          resetForm();
         }
       }
       fetchformdata();
-
     },
   });
 

@@ -12,12 +12,12 @@ import { education_obj } from "../utility_files/utility";
 export default function Education() {
   
   return (
-    <Box sx={{ width: '100%',padding: '70px 1rem', }} id="education">
-      <Box className="mycontainer">
+    <Box sx={{ width: '100%',padding: '30px 1rem', }}>
+      <Box className="mycontainer" sx={{backgroundColor:'#d4e8ff'}} p={4}borderRadius={1}>
 
-        <Grid container spacing={2}>
+        <Grid container spacing={2}  alignItems={'center'}>
           <Grid item md={5}>
-            <Box sx={{fontSize:"28px",fontWeight:700,borderBottom:"3px solid #ff824d",display:'inline-block'}}>My education</Box> 
+            <Box sx={{fontSize:"28px",py:2,color:'#114683',fontWeight:700,borderBottom:"3px solid #ff824d",display:'inline-block'}}>My education</Box> 
             <Typography color={'#5c6569'} mt={2}>Education is the most powerful weapon which you can use to change the world.</Typography>
           </Grid>
           
@@ -27,16 +27,16 @@ export default function Education() {
               education_obj.map((elem, ind) => {
                 return(
                 <Grid item sm={6} width={"100%"}>
-                  <Card sx={{width:'100%',height:'100%'}}>
+                  <Card sx={{width:'100%',height:'100%',backgroundColor:'#114683'}}>
                     <CardActionArea sx={{width:'100%',height:'100%'}}>
-                      <CardContent sx={{display:'flex',flexDirection:'column',justifyContent:'start',gap:'1rem',height:'100%'}}>
+                      <CardContent sx={{display:'flex',flexDirection:'column',justifyContent:'start',gap:'1rem',height:'100%',color:'#fff'}}>
                         <Box sx={{fontSize:'20px',color:'#1976d2',lineHeight:'1.1',display:'flex',justifyContent:'start',gap:'10px'}} >
                          <SchoolIcon></SchoolIcon><Typography>{elem.education}</Typography> 
                         </Box>
-                        <Typography variant="body2" sx={{ fontSize: 14}} color="text.secondary" gutterBottom>
+                        <Typography variant="body2" sx={{ fontSize: 15}} color="#fff" gutterBottom>
                           {elem.college}
                         </Typography>
-                        <Typography fontWeight={600} sx={{flexGrow:1}}>
+                        <Typography fontWeight={500} sx={{flexGrow:1}} fontSize={'20px'} variant="body2">
                           <Box sx={{marginTop:'auto'}}>
 
                           {elem.percentage}

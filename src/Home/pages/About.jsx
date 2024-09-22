@@ -6,7 +6,6 @@ import Button from '@mui/material/Button'
 import arunresume from '../../assets/image/arunresume.pdf'
 import handleDownload from '../../components/downloadImage';
 import about2 from '../../assets/image/about2.png'
-import { lightBlue } from '@mui/material/colors';
 import { useNavigate } from 'react-router-dom';
 export default function About() {
   const navigate = useNavigate();

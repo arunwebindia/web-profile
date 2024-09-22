@@ -1,5 +1,5 @@
 
-import { Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, MenuItem, Typography } from '@mui/material'
+import { Grid, ListItemButton, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React from 'react'
 import bannerImage from '../assets/image/banner_image.svg'
@@ -24,22 +24,22 @@ export default function Footer() {
           <Grid item sm={3}>
             <Box className="footer-menu">
               <Typography paddingLeft={2}>Menus</Typography>
-              <ul >
-                    <ListItemButton>
-                      <NavLink to='/'>Home</NavLink>
-                    </ListItemButton>
-                    <ListItemButton>
-                      <NavLink>About</NavLink>
-                    </ListItemButton>
-                    <ListItemButton>
-                      <NavLink>JavaScript</NavLink>
-                    </ListItemButton>
-                    <ListItemButton>
-                      <NavLink>CSS</NavLink>
-                    </ListItemButton>
-                    <ListItemButton>
-                      <NavLink>Project</NavLink>
-                    </ListItemButton>
+              <ul>
+                  <ListItemButton>
+                    <NavLink to='/'>Home</NavLink>
+                  </ListItemButton>
+                  <ListItemButton>
+                    <NavLink>About</NavLink>
+                  </ListItemButton>
+                  <ListItemButton>
+                    <NavLink>JavaScript</NavLink>
+                  </ListItemButton>
+                  <ListItemButton>
+                    <NavLink>CSS</NavLink>
+                  </ListItemButton>
+                  <ListItemButton>
+                    <NavLink>Project</NavLink>
+                  </ListItemButton>
               </ul>
             </Box>
           </Grid>

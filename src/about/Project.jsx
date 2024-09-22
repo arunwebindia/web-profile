@@ -20,7 +20,7 @@ export default function Project() {
   return (
     <Box sx={{ width: '100%',paddingBottom:'70px'}}>
       <Box className="mycontainer">
-      <Box sx={{fontSize:"28px",fontWeight:700,borderBottom:"3px solid #ff824d",display:'inline-block'}}>My Project</Box> 
+      <Box sx={{fontSize:"28px",fontWeight:700,borderBottom:"3px solid #ff824d",display:'inline-block'}} py={2}>My Progress</Box> 
       <Typography color={'#5c6569'} mt={3}>adipisicing elit. Quis fugit itaque aspernatur totam ullam aliquid praesentium quia, qui animi nesciunt sunt tempora, explicabo accusamus nobis in, cupiditate ipsam nostrum beatae?</Typography>
         <Grid container spacing={2} mt={3}>
           <Grid sm={3}>
