@@ -19,18 +19,18 @@ export default function Project() {
  
   return (
     <Box sx={{ width: '100%',paddingBottom:'70px'}}>
-      <Box className="mycontainer">
+      <Box className="mycontainer" padding={3}>
       <Box sx={{fontSize:"28px",fontWeight:700,borderBottom:"3px solid #ff824d",display:'inline-block'}} py={2}>My Progress</Box> 
       <Typography color={'#5c6569'} mt={3}>adipisicing elit. Quis fugit itaque aspernatur totam ullam aliquid praesentium quia, qui animi nesciunt sunt tempora, explicabo accusamus nobis in, cupiditate ipsam nostrum beatae?</Typography>
         <Grid container spacing={2} mt={3}>
-          <Grid sm={3}>
+          <Grid sm={6} md={3}>
             <Card>
               <CardActionArea className="education-cards">
                 <CardMedia
                   component="img"
                   image={knit}
                   alt="green iguana"
-                  sx={{ width: '100%', height: '100%' }}
+                  sx={{ width: '100%', height: 'auto' }}
                 />
                 <CardContent>
                   <Typography sx={{ fontSize: '1.2rem', display: 'inline-block', fontWeight: '700' }}>
@@ -48,7 +48,7 @@ export default function Project() {
               </CardActionArea>
             </Card>
           </Grid>
-          <Grid sm={3}>
+          <Grid sm={6} md={3}>
             <Card sx={{height:'100%'}}>
               <CardActionArea className="education-cards">
                 <CardMedia
@@ -56,7 +56,7 @@ export default function Project() {
 
                   image={it}
                   alt="green iguana"
-                  sx={{ width: '100%', height: '100%' }}
+                  sx={{ width: '100%', height: 'auto' }}
                 />
                 <CardContent>
                   <Typography sx={{ fontSize: '1.2rem', display: 'inline-block', fontWeight: '700' }}>
@@ -71,7 +71,7 @@ export default function Project() {
               </CardActionArea>
             </Card>
           </Grid>
-          <Grid sm={3}>
+          <Grid sm={6} md={3}>
             <Card sx={{height:'100%'}}>
               <CardActionArea className="education-cards">
                 <CardMedia
@@ -79,7 +79,7 @@ export default function Project() {
 
                   image={skillCenter}
                   alt="green iguana"
-                  sx={{ width: '100%',height:'90%',objectFit:'cover' }}
+                  sx={{ width: '100%',height:'auto',objectFit:'cover' }}
                 />
                 <CardContent>
                   <Typography sx={{ fontSize: '1.2rem', display: 'inline-block', fontWeight: '700' }}>
@@ -95,7 +95,7 @@ export default function Project() {
               </CardActionArea>
             </Card>
           </Grid>
-          <Grid sm={3}>
+          <Grid sm={6} md={3}>
             <Card sx={{height:'100%'}}>
               <CardActionArea className="education-cards">
                 <CardMedia

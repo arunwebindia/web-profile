@@ -4,7 +4,8 @@ import Programming from './javascript/Programming';
 import JScomponent from './javascript/JScomponent';
 import Solution from './javascript/Solution';
 import PageNotFound from './PageNotFound/PageNotFound';
-import Contact from './components/Contact';
+// import Contact from './components/Contact';
+import Contact from './contact/Contact';
 import Ui from './javascript/Ui';
 import Admin from './dashboard/Admin';
 import { Box } from '@mui/system';
@@ -25,6 +26,8 @@ import Login from './authentication/Login';
 import Register from './authentication/Register';
 import Forget from './authentication/Forget'
 import AdminProfile from './dashboard/profile/AdminProfile';
+import TypeMaster from './project/TypingMaster';
+import MemoryGame from './project/MemoryGame';
 function App() {
   let [login,setLogin] =useState(false);
   let [loginActive,setLogInActive] =useState(false);
@@ -68,6 +71,8 @@ function App() {
           <Route path="/project/2" element={<HtmlCompiler/>}></Route>
           <Route path="/project/3" element={<Donate/>}></Route>
           <Route path="/project/4" element={<EmailExtractor/>}></Route>
+          <Route path="/project/5" element={<TypeMaster/>}></Route>
+          <Route path="/project/6" element={<MemoryGame/>}></Route>
           <Route path="/admin" element={login ? <Admin setLogin={setLogin}/> : <Login></Login>}></Route>
           <Route path='*' element={<PageNotFound/>}></Route> 
         </Routes>
