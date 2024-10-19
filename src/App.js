@@ -28,6 +28,7 @@ import Forget from './authentication/Forget'
 import AdminProfile from './dashboard/profile/AdminProfile';
 import TypeMaster from './project/TypingMaster';
 import MemoryGame from './project/MemoryGame';
+
 function App() {
   let [login,setLogin] =useState(false);
   let [loginActive,setLogInActive] =useState(false);
