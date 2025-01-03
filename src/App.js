@@ -28,6 +28,8 @@ import Forget from './authentication/Forget'
 import AdminProfile from './dashboard/profile/AdminProfile';
 import TypeMaster from './project/TypingMaster';
 import MemoryGame from './project/MemoryGame';
+import Snake from './project/Snake';
+import Tic from './project/Tic';
 
 function App() {
   let [login,setLogin] =useState(false);
@@ -74,6 +76,8 @@ function App() {
           <Route path="/project/4" element={<EmailExtractor/>}></Route>
           <Route path="/project/5" element={<TypeMaster/>}></Route>
           <Route path="/project/6" element={<MemoryGame/>}></Route>
+          <Route path="/project/7" element={<Snake/>}></Route>
+          <Route path="/project/8" element={<Tic/>}></Route>
           <Route path="/admin" element={login ? <Admin setLogin={setLogin}/> : <Login></Login>}></Route>
           <Route path='*' element={<PageNotFound/>}></Route> 
         </Routes>

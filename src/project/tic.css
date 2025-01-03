@@ -1,0 +1,80 @@
+.ttt-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(240, 240, 240);
+  flex-direction: column;
+}
+.ttt-wrapper {
+  width: 600px;
+  height: 600px;
+  border: 0.5px solid lightgray;
+  display: flex;
+  flex-wrap: wrap;
+}
+.ttt-wrapper .box {
+  width: 33.3333%;
+  height: 33.3333%; /* border:.2px solid gray; */
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+.ttt-wrapper .box i,
+.win-container .box i {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-size: 80px;
+  background-color: rgb(248, 248, 248);
+  color: rgb(235, 235, 235);
+  border: 0.5px solid rgb(209, 209, 209);
+  display: inline-block;
+}
+.ttt-wrapper .box i.cross,
+.win-container .box i.cross {
+  background-color: rgb(255, 213, 210);
+  color: rgb(172, 90, 15);
+}
+.ttt-wrapper .box i.right,
+.win-container .box i.right {
+  background-color: rgb(210, 255, 210);
+  color: rgb(4, 66, 4);
+}
+.fa-solid::before {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.win-match-pop {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.568);
+  z-index: 99;
+}
+.win-container {
+  background-color: rgba(255, 255, 255, 0.993);
+  padding: 50px;
+}
+.win-container .box i {
+  border: unset;
+}
+.win-container .box {
+  display: block;
+  min-height: 80px;
+  padding: 70px 0;
+}
+.restart-btn {
+  order: 1;
+  padding: 30px;
+}
